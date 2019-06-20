@@ -1,0 +1,144 @@
+<!DOCTYPE HTML>
+<!--[if IE]>尽量不要用ie<!-->
+<html>
+    <head>
+        <title>抽奖</title>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta charset="utf-8"/>
+    </head>
+    <style>
+        body{
+            background-color:#60f9de;
+            text-align:center;
+        }
+        #title{
+            border:none;
+            width:400px;
+            font-size:50px;
+            color:white;
+            text-align:center;
+            border-radius:25px;
+            margin-left:auto;
+            margin-right:auto;
+            margin-top:50px;
+            background-color:#80f9be;
+        }
+        #divNum{
+            color:orange;
+            font-size:220px;
+            height:200px;
+            margin-top:-50px;
+        }
+
+        #start_{
+            width:350px;
+            height:80px;
+            font-size:50px;
+            border-radius:25px;
+            border:none;
+            background-color:#80e9fe;
+            margin-top:100px;
+        }
+        #end_{
+            width:350px;
+            height:80px;
+            font-size:50px;
+            border-radius:25px;
+            border:none;
+            background-color:#80e9fe;
+            margin-top:100px;
+        }
+        #start_:hover{
+            background-color:#6094fe;
+        }
+        #end_:hover{
+            background-color:#6094fe;
+        }
+
+        #start_:hover:active{
+            background-color:#66afdd;
+        }
+        #end_:hover:active{
+            background-color:#66afdd;
+        }
+
+        #start_:active{
+            background-color:#66afdd;
+        }
+        #end_:active{
+            background-color:#66afdd;
+        }
+        #names{
+            width: 500px;
+            height: 200px;
+            border: 2px solid black;
+            margin: 0 auto;
+            overflow-y:auto;
+           border-radius:15px;
+        }
+
+    </style>
+    <script>
+
+        let names = "姓名1,姓名2,姓名3";
+        let listnames=names.split(',');
+        function Start()
+        {
+            s=document.getElementById('start_');
+            e=document.getElementById("end_")
+
+            if (s.style.display!="none") {
+
+                s.style.display="none";
+                e.style.display="inline-block";
+                t=true
+            }
+            else{
+                e.style.display="none";
+                s.style.display="inline-block";
+                t=false
+            }
+        //修改names里面的名字
+
+        if(!names || !names.trim()){
+            document.getElementById('divNum').innerHTML = '没有名单';
+            return;
+        }
+
+        if(listnames.length ==0){
+            document.getElementById('divNum').innerHTML = '抽取完毕';
+            return;
+        }
+        if (s.style.display=="none") {
+            const timer = setInterval(() => {
+                if (t) {
+                    lis = Math.floor((Math.random() * listnames.length));
+                    document.getElementById('divNum').innerHTML = listnames[lis]
+                } else {
+                    document.getElementById("names").insertAdjacentHTML('beforeend','<div style="color:red;font-size:23px;">'+listnames[lis]+'</div>')
+                    listnames.splice(lis, 1)
+                    clearInterval(timer)
+                }
+            }, 10)//这个10是调节速度的
+        }
+
+}
+
+
+    </script>
+    <body>
+        <div id="title">
+            <p>简单抽奖</p>
+        </div>
+        <div id="divNum">
+
+        </div>
+        <button id="start_" style="display: inline-block " name="start_" onclick="Start();">开始</button>
+        <button id="end_" style="display: none" name="start_" onclick="Start();">停止</button>
+
+    <div style="margin-top: 10px;">
+        <p style="font-size: 22px;">中奖名单</p>
+        <div id="names"></div>
+    </div>
+    </body>
+</html>
