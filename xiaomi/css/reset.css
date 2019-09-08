@@ -1,0 +1,13 @@
+body, input, ul, li, p,
+h1, h2, h3, h5, a {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul, ol, li {
+    list-style: none;
+}

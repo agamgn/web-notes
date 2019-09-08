@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>小米商城</title>
+	<link rel="shortcut icon" href="images/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="css/seckill.css">
+	<link rel="stylesheet" href="css/reset.css">
+	<link rel="stylesheet" href="css/base.css">
+	<link rel="stylesheet" href="font/iconfont.css">
+	<script type="text/javascript" src="js/tt.js"></script>
+</head>
+
+<body>
+	<div class="main-container">
+		<!-- 黑条导航 -->
+		<header class="site-topbar">
+			<div class="container clearfix">
+				<div class="topbar-nav">
+					<a href="">小米商城</a>
+					<span>|</span>
+					<a href="">MIUI</a>
+					<span>|</span>
+					<a href="">loT</a>
+					<span>|</span>
+					<a href="">云服务</a>
+					<span>|</span>
+					<a href="">金融</a>
+					<span>|</span>
+					<a href="">有品</a>
+					<span>|</span>
+					<a href="">小爱开放平台</a>
+					<span>|</span>
+					<a href="">企业团购</a>
+					<span>|</span>
+					<a href="">资质证照</a>
+					<span>|</span>
+					<a href="">协议规则</a>
+					<span>|</span>
+					<a href="" class="download">下载app
+						<div class="down-box">
+							<b></b>
+							<img src="images/download.png" alt="" /><i>小米商城APP</i>
+						</div>
+					</a>
+					<span>|</span>
+					<a href="">Select Region</a>
+				</div>
+				<div class="top-cart">
+					<a href="" class="cart"><i class="iconfont icon-shoppingcart"></i>
+						购物车
+						<span>(0)</span>
+					</a>
+					<div class="shopping-cart cart-none">
+						<p id="no-goods">购物车中还没有商品，赶快选购吧！</p>
+					</div>
+				</div>
+				<div class="user-infor">
+					<div class="user">
+						<a href="" class="title">用户名~</a>
+						<ul>
+							<li><a href="">个人中心</a></li>
+							<li><a href="">评价晒单</a></li>
+							<li><a href="">我的喜欢</a></li>
+							<li><a href="">小米账号</a></li>
+							<li><a href="">退出登录</a></li>
+						</ul>
+					</div>
+					<span>|</span>
+					<a href="">消息通知</a>
+					<span>|</span>
+					<a href="">我的订单</a>
+				</div>
+			</div>
+		</header>
+
+		<nav class="site-navbar">
+			<div class="container clearfix nav">
+				<div class="nav-logo">
+					<a href=""></a>
+				</div>
+				<div class="nav-navbar">
+					<ul class="clearfix">
+						<li class="item-pos"><a href="" class="item-hidden">全部商品分类</a></li>
+						<li><a href="">小米手机</a></li>
+						<li><a href="">Redmi红米</a></li>
+						<li><a href="">电视</a></li>
+						<li><a href="">笔记本</a></li>
+						<li><a href="">家电</a></li>
+						<li><a href="">路由器</a></li>
+						<li><a href="">智能硬件</a></li>
+						<li><a href="">服务</a></li>
+						<li><a href="">社区</a></li>
+					</ul>
+				</div>
+				<div class="nav-search">
+					<form action="">
+						<input type="text" class="search-text" id="search-text" onfocus="kkey(hotwords)"
+							onblur="cclose(hotwords)" />
+						<input type="submit" value=" " class="search-btn" id="search-btn" />
+						<div class="search-hot-words" id="hotwords">
+							<a href="">小米9</a>
+							<a href="">小米9 SE</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</nav>
+		<!-- 秒杀标题 -->
+		<div class="seckill-header"></div>
+
+
+		<!-- 秒杀 -->
+		<section class="index-seckill">
+			<div class="container">
+				<div class="modal-nostart">
+					<ul class="ul-modal">
+						<li class="bg" id="now">
+							<a href="">
+								<span>14:00</span>
+								<span>抢购中</span>
+							</a>
+						</li>
+						<li id="four">
+							<a href="">
+								<span>20:00</span>
+								<span>即将开始</span>
+							</a>
+						</li>
+						<li id="three">
+							<a href="">
+								<span>00:00</span>
+								<span>明日开始</span>
+							</a>
+						</li>
+						<li id="two">
+							<a href="">
+								<span>10:00</span>
+								<span>明日开始</span>
+							</a>
+						</li>
+						<li onfocus="changeone(one)" id="one">
+							<a href="">
+								<span>14:00</span>
+								<span>明日开始</span>
+							</a>
+						</li>
+					</ul>
+				</div>
+				<!-- 秒杀内容 -->
+				<div class="seckill">
+					<div class="seckill-container">
+						<ul class="goods">
+							<li class="goods-one">
+								<a href="" class="item-box"></a>
+								<span><img src="images/goodsone.jpg"> </span>
+								<span class="pro-con">
+									<span class="name">小米9 王源限量版 8GB 265GB内容 </span>
+									<span class="desc">骁龙855 索尼4000万三摄</span>
+									<span><em></em> </span>
+									<span class="price">2999.00元<del>3599元</del> </span>
+									<input type="button" class="btn" class="btn-primary" name="" value="登录后抢购">
+								</span>
+							</li>
+							<li class="goods-one sp">
+								<a href="" class="item-box"></a>
+								<span><img src="images/ge.jpg"> </span>
+								<span class="pro-con">
+									<span class="name">USB-C至VGA 千兆网速 </span>
+									<span class="desc">小巧轻便，节省桌面空间</span>
+									<span><em></em> </span>
+									<span class="price">178.00元<del>199元</del> </span>
+									<input type="button" class="btn" class="btn-primary" name="" value="登录后抢购">
+								</span>
+							</li>
+							<li class="goods-one sp">
+								<a href="" class="item-box"></a>
+								<span><img src="images/gf.jpg"> </span>
+								<span class="pro-con">
+									<span class="name">米家空气净化器MAX </span>
+									<span class="desc">适用大面积，现金静音技术</span>
+									<span><em></em> </span>
+									<span class="price">1899.00元<del>2199元</del> </span>
+									<input type="button" class="btn" class="btn-primary" name="" value="登录后抢购">
+								</span>
+							</li>
+							<li class="goods-one">
+								<a href="" class="item-box"></a>
+								<span><img src="images/gg.jpg"> </span>
+								<span class="pro-con">
+									<span class="name">米家驱蚊器基础班 白色</span>
+									<span class="desc">长效驱蚊</span>
+									<span><em></em> </span>
+									<span class="price">39.00元<del>49元</del> </span>
+									<input type="button" class="btn" class="btn-primary" name="" value="登录后抢购">
+								</span>
+							</li>
+							<li class="goods-one sp">
+								<a href="" class="item-box"></a>
+								<span><img src="images/gh.jpg"> </span>
+								<span class="pro-con">
+									<span class="name">烟灶套装（天然气） </span>
+									<span class="desc">点火排烟，风随火动</span>
+									<span><em></em> </span>
+									<span class="price">1898.00元<del>2298元</del> </span>
+									<input type="button" class="btn" class="btn-primary" name="" value="登录后抢购">
+								</span>
+							</li>
+							<li class="goods-one sp">
+								<a href="" class="item-box"></a>
+								<span><img src="images/gi.jpg"> </span>
+								<span class="pro-con">
+									<span class="name">小米小钢炮蓝牙音箱2019版本 </span>
+									<span class="desc">极简设计，专业喇叭</span>
+									<span><em></em> </span>
+									<span class="price">118.00元<del>129元</del> </span>
+									<input type="button" class="btn" class="btn-primary" name="" value="登录后抢购">
+								</span>
+							</li>
+						</ul>
+						<ul class="goods">
+							<li class="goods-one">
+								<a href="" class="item-box"></a>
+								<span><img src="images/gk.jpg"> </span>
+								<span class="pro-con">
+									<span class="name">小米VR一体机 超级好玩的游戏机 </span>
+									<span class="desc">为VR游戏而生</span>
+									<span><em></em> </span>
+									<span class="price">1748.00元<del>1799元</del> </span>
+									<input type="button" class="btn" class="btn-primary" name="" value="登录后抢购">
+								</span>
+							</li>
+							<li class="goods-one sp">
+								<a href="" class="item-box"></a>
+								<span><img src="images/goodstwo.jpg"> </span>
+								<span class="pro-con">
+									<span class="name">小米路由器4A千兆版</span>
+									<span class="desc">双核全千兆AC1200路由器</span>
+									<span><em></em> </span>
+									<span class="price">149.00元<del>169元</del> </span>
+									<input type="button" class="btn" class="btn-primary" name="" value="登录后抢购">
+								</span>
+							</li>
+							<li class="goods-one sp">
+								<a href="" class="item-box"></a>
+								<span><img src="images/ga.png"> </span>
+								<span class="pro-con">
+									<span class="name">小米WiFi放大器Pro 黑色 </span>
+									<span class="desc">轻松扩展WIFI信号</span>
+									<span><em></em> </span>
+									<span class="price">59.00元<del>79元</del> </span>
+									<input type="button" class="btn" class="btn-primary" name="" value="登录后抢购">
+								</span>
+							</li>
+							<li class="goods-one">
+								<a href="" class="item-box"></a>
+								<span><img src="images/gb.jpg"> </span>
+								<span class="pro-con">
+									<span class="name">小米净水器600G 白色 </span>
+									<span class="desc">600加仑通量，流速更快</span>
+									<span><em></em> </span>
+									<span class="price">2199.00元<del>2499元</del> </span>
+									<input type="button" class="btn" class="btn-primary" name="" value="登录后抢购">
+								</span>
+							</li>
+							<li class="goods-one sp">
+								<a href="" class="item-box"></a>
+								<span><img src="images/gc.jpg"> </span>
+								<span class="pro-con">
+									<span class="name">小米USB-C电源适配器头部 </span>
+									<span class="desc">多协议快充/USB-C接口输出/可折叠插脚</span>
+									<span><em></em> </span>
+									<span class="price">118.00元<del>129元</del> </span>
+									<input type="button" class="btn" class="btn-primary" name="" value="登录后抢购">
+								</span>
+							</li>
+							<li class="goods-one sp">
+								<a href="" class="item-box"></a>
+								<span><img src="images/gd.jpg"> </span>
+								<span class="pro-con">
+									<span class="name">小米时尚通勤双肩包灰色 </span>
+									<span class="desc">稳重的外表，张扬的内心</span>
+									<span><em></em> </span>
+									<span class="price">228.00元<del>249元</del> </span>
+									<input type="button" class="btn" class="btn-primary" name="" value="登录后抢购">
+								</span>
+							</li>
+						</ul>
+					</div>
+					<pre>
+*小米秒杀活动规则： 
+1.秒杀商品是否参加活动，以订单结算页显示为准，活动包括但不限于优惠券、赠品、满减、满赠等；
+2.秒杀商品数量有限，活动以下单支付成功为准，请加入购物车后尽快下单支付；
+3.秒杀价不含运费，最终以订单结算页价格为准。
+温馨提示：因可能存在系统缓存、页面更新导致价格变动异常等不确定性情况出现，如您发现活动商品标价或促销信息有异常，请您立即联系小米客服，以便我们及时补正。</pre>
+				</div>
+			</div>
+
+		</section>
+
+
+
+
+
+
+
+
+
+		<!-- 尾部footer部分 -->
+		<footer class="index-footer">
+			<div class="site-footer">
+				<div class="container">
+					<div class="footer-service">
+						<ul class="service-list clearfix">
+							<li><a href=""><i class="iconfont icon-wrench"></i>预约维修服务</a></li>
+							<li><a href=""><i class="iconfont icon-seven"></i>7天无理由退货</a></li>
+							<li><a href=""><i class="iconfont icon-fifteen"></i>15天免费换货</a></li>
+							<li><a href=""><i class="iconfont icon-huodong"></i>满150元包邮</a></li>
+							<li><a href=""><i class="iconfont icon-location"></i>520余家售后网点</a></li>
+						</ul>
+					</div>
+					<div class="footer-links clearfix">
+						<ul class="links-col">
+							<li class="title">帮助中心</li>
+							<li><a href="">账户管理</a></li>
+							<li><a href="">购物指南</a></li>
+							<li><a href="">订单操作</a></li>
+						</ul>
+						<ul class="links-col">
+							<li class="title">服务支持</li>
+							<li><a href="">售后政策</a></li>
+							<li><a href="">自助服务</a></li>
+							<li><a href="">相关下载</a></li>
+						</ul>
+						<ul class="links-col">
+							<li class="title">线下门店</li>
+							<li><a href="">小米之家</a></li>
+							<li><a href="">服务网点</a></li>
+							<li><a href="">授权点体验</a></li>
+						</ul>
+						<ul class="links-col">
+							<li class="title">关于小米</li>
+							<li><a href="">了解小米</a></li>
+							<li><a href="">加入小米</a></li>
+							<li><a href="">投资者关系</a></li>
+						</ul>
+						<ul class="links-col">
+							<li class="title">关注我们</li>
+							<li><a href="">新浪微博</a></li>
+							<li><a href="">官方微信</a></li>
+							<li><a href="">联系我们</a></li>
+						</ul>
+						<ul class="links-col">
+							<li class="title">特色服务</li>
+							<li><a href="">F码通道</a></li>
+							<li><a href="">礼物码</a></li>
+							<li><a href="">防伪查询</a></li>
+						</ul>
+						<div class="server-content">
+							<p class="tel">400-100-5678</p>
+							<p class="date">
+								周一至周日 8:00-18:00
+								<br>
+								(仅收取市话费)
+							</p>
+							<a href="" class="staff-service">人工客服</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div class="site-infor">
+				<div class="container clearfix">
+					<div class="footer-logo"><img src="./images/logo.png" alt=""></div>
+					<div class="footer-infor">
+						<div class="footer-nav">
+							<a href="">小米商城</a>
+							<span>|</span>
+							<a href="">MIUI</a>
+							<span>|</span>
+							<a href="">米家</a>
+							<span>|</span>
+							<a href="">米聊</a>
+							<span>|</span>
+							<a href="">多看</a>
+							<span>|</span>
+							<a href="">游戏</a>
+							<span>|</span>
+							<a href="">路由器</a>
+							<span>|</span>
+							<a href="">米粉卡</a>
+							<span>|</span>
+							<a href="">政企服务</a>
+							<span>|</span>
+							<a href="">小米天猫店</a>
+							<span>|</span>
+							<a href="">小米集团隐私政策</a>
+							<span>|</span>
+							<a href="">小米商城隐私政策</a>
+							<span>|</span>
+							<a href="">小米商城用户协议</a>
+							<span>|</span>
+							<a href="">问题反馈</a>
+							<span>|</span>
+							<a href="">廉正举报</a>
+							<span>|</span>
+							<a href="">诚信合规</a>
+							<span>|</span>
+							<a href="">Select Location</a>
+						</div>
+						<div class="detailed-infor">
+							<span>©</span>
+							<a href="">mi.com</a>
+							<span>京ICP证110507号</span>
+							<a href="">京ICP备10046444号</a>
+							<a href="">京公网安备11010802020134号</a>
+							<a href="">京网文[2017]1530-131号</a>
+							<br>
+							<a href="">（京）网械平台备字（2018）第00005号</a>
+							<a href="">互联网药品信息服务资格证 (京) -非经营性-2014-0090</a>
+							<a href="">营业执照</a>
+							<a href="">医疗器械公告</a>
+							<br>
+							<a href="">增值电信业务许可证</a>
+							<span>网络食品经营备案（京）【2018】WLSPJYBAHF-12</span>
+							<a href="">食品经营许可证</a>
+							<br>
+							<span>违法和不良信息举报电话：185-0130-1238</span>
+							<a href="">知识产权侵权投诉</a>
+							<span>本网站所列数据，除特殊说明，所有数据均出自我司实验室测试</span>
+						</div>
+						<div class="link-infor">
+							<a href=""><img src="./images/link1.png" alt=""></a>
+							<a href=""><img src="./images/link2.png" alt=""></a>
+							<a href=""><img src="./images/link3.png" alt=""></a>
+							<a href=""><img src="./images/link4.png" alt=""></a>
+							<a href=""><img src="./images/link5.png" alt=""></a>
+						</div>
+					</div>
+				</div>
+				<div class="bottom-logo"><img src="./images/bottom-logo.png" alt=""></div>
+			</div>
+		</footer>
+</body>
+
+</html>
