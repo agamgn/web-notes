@@ -2,6 +2,7 @@ function copy(arr){
     var obj=arr.constructor==Array?[]:{};
 　　//第二种方法 var obj=arr instanceof Array?[]:{}
 　　//第三种方法 var obj=Array.isArray(arr)?[]:{}
+      // for...in 会把继承的属性一起遍历
 　　for(var item in arr){
         if(typeof arr[item]==="object"){
             obj[item]=copy(arr[item]);
