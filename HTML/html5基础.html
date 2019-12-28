@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML5</title>
+</head>
+
+<body>
+
+    <header>页眉</header>
+    <nav>导航</nav>
+    <section>
+        <header>定义文档中的区段</header>
+        <article>定义文章</article>
+        <footer>定义页脚</footer>
+    </section>
+    <aside>定义文章的侧边栏</aside>
+    <footer>定义页脚</footer>
+
+    <hr>
+    <form action="" id="form1">
+        <input type="color">
+        <input type="data">
+        <input type="datatime">
+        <input type="datatime-local">
+        <input autofocus type="email">
+        <input type="month">
+        <input type="number" min="1" max="20">
+        <input type="range" min="2" max="10">
+        <input type="search">
+        <input type="tel">
+        <input type="time">
+        <input type="url">
+        <input type="week">
+    </form>
+
+    <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">0
+        <input type="range" id="a" value="50">100
+        +<input type="number" id="b" value="50">
+        =<output name="x" for="a b"></output>
+    </form>
+
+    <form action="" autocomplete="on">
+        <p>表单属性</p>
+        <p>聚焦<input type="text" name="fname" autofocus></p>
+        <p> form属性，规定输入域属于一个或者多个表单 <input type="text" name="lname" form="form1"></p>
+        <p>multiple 属性规定<input> 元素中可选择多个值。 <input type="file" name="img" multiple></p>
+        <p>Country code: <input type="text" name="country_code" pattern="[A-Za-z]{3}" title="Three letter country code">
+        </p>
+        <p><input type="text" name="fname" placeholder="First name">
+        </p>
+        <p>Username: <input type="text" name="usrname" required></p>
+        <p><input type="number" name="points" step="3"></p>
+        
+    </form>
+</body>
+
+</html>

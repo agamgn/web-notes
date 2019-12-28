@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 未访问链接 */
+        .link a:link {
+            color: #000000;
+        }
+
+        /* 以访问链接 */
+        .link a:visited {
+            color: #00ff00;
+        }
+
+        /* 鼠标移动到链接上 */
+        .link a:hover {
+            color: #ff00ff;
+            text-decoration: underline;
+        }
+
+        /* 鼠标点击时 */
+        .link a:active {
+            color: #0000ff;
+        }
+
+        .ul-url .a {
+            list-style-type: hebrew;
+        }
+
+        .outline {
+            border: 1px solid red;
+            outline: goldenrod dotted thick;
+        }
+
+        .displays .none {
+            display: none;
+        }
+
+        .displays .hidden {
+            visibility: hidden;
+        }
+
+        .displays .inline1,
+        .inline2,
+        .inline3 {
+            display: inline;
+        }
+
+        .position .fixed {
+            position: fixed;
+            top: 30px;
+            left: 5px;
+            background-color: blue;
+        }
+
+        .position .relative-father {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            left: 20px;
+            background-color: red;
+        }
+
+        .position .relative-child {
+            position: relative;
+            width: 30px;
+            height: 30px;
+            background-color: blue;
+            bottom: -10px;
+            left: -10px;
+        }
+
+        .position .absollute {
+            width: 30px;
+            height: 30px;
+            background-color: blueviolet;
+            position: absolute;
+            top: 150px;
+        }
+
+        .position .sticky {
+            width: 30px;
+            height: 30px;
+            background-color: rosybrown;
+            position: sticky;
+            top: 0;
+        }
+
+        .float span {
+            float: left;
+            width: 1.2em;
+            font-size: 300%;
+            font-family: algerian, courier;
+            line-height: 80%;
+        }
+        .pseudo-class p:first-letter{
+            font-size: 200%;
+            color: rosybrown;
+        }
+        .pseudo-class p:before{
+            content: "before";
+        }
+
+        .counter{
+            counter-reset: section;
+        }
+        .counter h2::before{
+            counter-increment: section;
+            content: "Section "counter(section) ":";
+        }
+    </style>
+</head>
+
+<body>
+    <div class="link">
+        <p><a href="http://www.baidu.com" target="_blank">这是一个链接</a></p>
+        <p><b>注意：</b> a:hover 必须在 a:link 和 a:visited 之后，需要严格按顺序才能看到效果。</p>
+        <p><b>注意：</b> a:active 必须在 a:hover 之后。</p>
+    </div>
+
+    <div class="ul-url">
+        <ul class="a">
+            <li>Circle type</li>
+            <li>Tea</li>
+            <li>Coca Cola</li>
+        </ul>
+    </div>
+
+    <div class="outline">
+        <p>outline是不占宽度的</p>
+    </div>
+
+    <div class="displays">
+        <div class="none">none</div>
+        <div class="inline1">inline1</div>
+        <div class="hidden">visibility</div>
+        <div class="inline2">inline2</div>
+        <div class="inline3">inline3</div>
+    </div>
+
+    <div class="position">
+        <div class="fixed">根据浏览器窗口定位</div>
+        <div class="relative-father">
+            <div class="relative-child"></div>
+        </div>
+        <div class="absollute"></div>
+        <div class="sticky"></div>
+
+        <span style="cursor:sw-resize">sw-resize</span><br>
+        <span style="cursor:text">text</span><br>
+        <span style="cursor:w-resize">w-resize</span><br>
+        <span style="cursor:wait">wait</span><br>
+    </div>
+
+
+    <div class="float">
+        <p>
+            <span>这</span>是一些文本。
+            float脱离文档流，但是不脱离文本流
+            float脱离文档流，但是不脱离文本流
+            float脱离文档流，但是不脱离文本流
+            float脱离文档流，但是不脱离文本流
+            float脱离文档流，但是不脱离文本流
+            float脱离文档流，但是不脱离文本流
+            float脱离文档流，但是不脱离文本流
+            float脱离文档流，但是不脱离文本流
+            float脱离文档流，但是不脱离文本流
+            float脱离文档流，但是不脱离文本流
+            float脱离文档流，但是不脱离文本流
+        </p>
+    </div>
+
+    <div class="pseudo-class">
+        <p>My name is Donald.</p>
+        <p>I live in Duckburg.</p>
+        <p>My best friend is Mickey.</p>
+    </div>
+
+
+    <div class="counter">
+        <h1>使用 CSS 计数器:</h1>
+<h2>HTML 教程</h2>
+<h2>CSS 教程</h2>
+<h2>JavaScript 教程</h2>
+    </div>
+</body>
+
+</html>

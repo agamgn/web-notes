@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>css3基础</title>
+    <style>
+        .border {
+            width: 100%;
+            height: 50px;
+            border: 2px solid;
+            border-radius: 25px;
+            box-shadow: 10px 10px 5px #888888;
+            margin-bottom: 30px;
+        }
+
+        .gradients .gradients1 {
+            width: 49%;
+            height: 100px;
+            background-image: linear-gradient(#e66465, #9198e5);
+            display: inline-block;
+        }
+
+        .gradients .gradients2 {
+            width: 49%;
+            height: 100px;
+            background-image: radial-gradient(circle, red, yellow, green);
+
+            display: inline-block;
+        }
+
+        .text .text-shadow {
+            text-shadow: 5px 5px 5px #ff0000;
+        }
+
+        .text .box-shadow {
+            box-shadow: 10px 10px 5px #888888;
+
+        }
+
+        .text p.test {
+            width: 11em;
+            border: 1px solid #000000;
+            word-wrap: break-word;
+        }
+
+        .transforms .translate {
+            width: 100px;
+            height: 100px;
+            transform: translate(350px, 0px);
+            background-color: red;
+        }
+
+        .transforms .rotate {
+            width: 100px;
+            height: 100px;
+            transform: rotate(30deg) translateX(300px);
+
+            background-color: rebeccapurple;
+        }
+
+        .transforms .scale {
+            width: 100px;
+            height: 100px;
+            transform: scale(2, 1);
+            background-color: yellowgreen;
+        }
+
+        .transforms .skew {
+            width: 100px;
+            height: 100px;
+            transform: skew(30deg, 20deg);
+            background-color: bisque;
+        }
+
+        .transforms .matrix {
+            width: 100px;
+            height: 100px;
+            transform: matrix(0.866, 0.5, -0.5, 0.866, 0, 0);
+            background-color: darkcyan;
+        }
+
+        .transforms3d .rotatex {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border: 1px solid black;
+            transform: rotateX(120deg);
+        }
+
+        .transition .transition1 {
+            width: 200px;
+            height: 100px;
+            background-color: red;
+            transition: width 2s;
+        }
+
+        .transition .transition1:hover {
+            width: 500px;
+        }
+
+        .keyframes {
+            width: 100px;
+            height: 100px;
+            background: royalblue;
+            position: relative;
+            animation: myfirst 5s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes myfirst {
+            0% {
+                background: red;
+                left: 0px;
+                top: 0px;
+            }
+
+            25% {
+                background: yellow;
+                left: 200px;
+                top: 0px;
+            }
+
+            50% {
+                background: blue;
+                left: 200px;
+                top: 200px;
+            }
+
+            75% {
+                background: green;
+                left: 0px;
+                top: 200px;
+            }
+
+            100% {
+                background: red;
+                left: 0px;
+                top: 0px;
+            }
+        }
+
+        .resize {
+            border:2px solid;
+	padding:10px 40px; 
+	width:300px;
+            resize: both;
+            overflow: auto;
+        }
+        .outline-offset{
+            margin:20px;
+	width:150px; 
+	padding:10px;
+	height:70px;
+	border:2px solid black;
+	outline:2px solid red;
+	outline-offset:15px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="border"></div>
+    <div class="gradients">
+        <div class="gradients1"></div>
+        <div class="gradients2"></div>
+    </div>
+    <div class="text">
+        <span class="text-shadow">text shadow</span>
+        <span class="box-shadow">box-shadow</span>
+        <p class="test"> This paragraph contains a very long word: thisisaveryveryveryveryveryverylongword. The long
+            word will break and wrap to the next line.</p>
+    </div>
+
+    <div class="transforms">
+        <div class="translate"></div>
+        <div class="rotate"></div>
+        <div class="scale"></div>
+        <div class="skew"></div>
+        <div class="matrix">matrix 方法有六个参数，包含旋转，缩放，移动（平移）和倾斜功能。 </div>
+    </div>
+
+    <div class="transforms3d">
+        <div class="rotatex"></div>
+    </div>
+
+
+    <div class="transition">
+        <div class="transition1"></div>
+    </div>
+
+    <div class="keyframes"></div>
+    <div class="resize">调整属性指定一个元素是否由用户可调整大小的</div>
+
+    <div class="outline-offset">
+        这个 div有一个轮廓边界15 px边境外的边缘。
+    </div>
+</body>
+
+</html>
