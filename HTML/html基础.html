@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML</title>
+    <base href="//www.xxx.com/images/" target="_blank">
+</head>
+
+<body>
+    <h1>搜索引擎使用标题为您的网页的结构和内容编制索引</h1>
+    <h2>标题2</h2>
+    <h3>标题3</h3>
+    <h4>标题4</h4>
+    <h5>标题5</h5>
+    <h6>标题6</h6>
+    <p>段落</p>
+    <br>
+    <p>段落</p>
+    <a href="">链接</a>
+    <img src="" alt="图像">
+    <hr>
+
+    <p>html文本格式化</p>
+    <strong>加粗</strong>
+    <em>斜体</em>
+    <big>字体放大</big>
+    <small>字体是缩小的</small>
+    <sub>下标</sub>
+    <sup>上标</sup>
+    <br>
+    <pre>预格式文本,对空格 和空行
+
+        进行控制
+    </pre>
+    <address>
+        Written by <a href="mailto:webmaster@example.com">Jon Doe</a>.<br>
+        Visit us at:<br>
+        Example.com<br>
+        Box 564, Disneyland<br>
+        USA
+    </address>
+    <p>指示简称或缩写
+        The <abbr title="People's Republic of China">PRC</abbr> was founded in 1949.</The>
+
+        <bdo dir="rtl">可覆盖默认的文本方向,dir:ltr和rtl</bdo></p>
+    <p>My favorite color is <del>blue</del> <ins>red</ins>!</p>
+    <img src="logo.png"> - 注意这里我们设置了图片的相对地址。能正常显示是因为我们在 head 部分设置了 base 标签，该标签指定了页面上所有链接的默认 URL，所以该图片的访问地址为
+    "http://www.xxx.com/images/logo.png"
+    <hr>
+    <table border="1">
+        <tr>
+            <th>Header 1</th>
+            <th>Header 2</th>
+            <th>Header 3</th>
+        </tr>
+        <tr>
+            <td>row 1,cell 1</td>
+            <td>row 1,cell 2</td>
+        </tr>
+        <tr>
+            <td>row 2,cell 1</td>
+            <td>row 2,cell 2</td>
+            <td>row 2,cell 3</td>
+        </tr>
+    </table>
+
+    <h4>单元格间距=“0”</h4>
+    <table border="1" cellspacing="0">
+        <tr>
+            <td>First</td>
+            <td>Row</td>
+        </tr>
+
+        <tr>
+            <td>Second</td>
+            <td>Row</td>
+        </tr>
+    </table>
+
+    <h4>单元格跨两列:</h4>
+    <table border="1">
+        <tr>
+            <th>name</th>
+            <th colspan="2">telephone</th>
+        </tr>
+        <tr>
+            <td>bill gates</td>
+            <td>555 777 88</td>
+            <td>555 848 54</td>
+        </tr>
+    </table>
+
+    <h4>单元格跨两行:</h4>
+    <table border="1">
+        <tr>
+            <th>First Name:</th>
+            <td>Bill Gates</td>
+        </tr>
+        <tr>
+            <th rowspan="2">Telephone:</th>
+            <td>555 77 854</td>
+        </tr>
+        <tr>
+            <td>555 77 855</td>
+        </tr>
+    </table>
+
+    <hr>
+    <h4>无序列表</h4>
+    <ul>
+        <li>Coffee</li>
+        <li>Milk</li>
+    </ul>
+
+    <h4>有序列表</h4>
+    <ol>
+        <li>Coffee</li>
+        <li>Milk</li>
+    </ol>
+    <h4>自定义列表</h4>
+    <dl>
+        <dt>Coffee</dt>
+        <dd>- black hot drink</dd>
+        <dt>dt自定义列表项目        </dt>
+        <dd>dd定义自定列表项的描述</dd>
+    </dl>
+
+    <h4>有序列表可以改变type的值盖面其类型，小写罗马数字列表：</h4>
+<ol type="i">
+ <li>Apples</li>
+ <li>Bananas</li>
+ <li>Lemons</li>
+ <li>Oranges</li>
+</ol>
+<h4>有序列表 正方形列表：</h4>
+<ul style="list-style-type:square">
+ <li>Apples</li>
+ <li>Bananas</li>
+ <li>Lemons</li>
+ <li>Oranges</li>
+</ul>
+
+<hr>
+<h4>带标签的表单</h4>
+<form action="">
+    <fieldset>
+        <legend>persion information:</legend>
+        name: <input type="text" size="30">
+        email: <input type="text" size="30">
+        <input type="radio" name="sex" value="Male"> Male<br>
+        <input type="radio" name="sex" value="Female" checked="checked"> Female<br>
+    </fieldset>
+    <input type="submit" value="提交">
+</form>
+
+
+
+
+</body>
+
+</html>
