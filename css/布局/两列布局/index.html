@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css布局</title>
+    <style>
+        /* float+overflow */
+        .parent1 {
+            margin-bottom: 10px;
+        }
+        .left1 {
+            float: left;
+            height: 300px;
+            width: 200px;
+            background-color: limegreen
+        }
+        .right1 {
+            overflow: hidden;
+            height: 300px;
+            background-color: lightsalmon;
+        }
+
+        /* flex */
+        .parent2 {
+            display: flex;
+            height: 300px;
+            margin-bottom: 10px;
+        }
+
+        .left2 {
+            width: 200px;
+            background-color: lightseagreen;
+        }
+
+        .right2 {
+            flex: 1;
+            background-color: #ddd;
+        }
+ 
+    </style>
+</head>
+
+<body>
+
+    <div class="parent1">
+        <div class="left1">左</div>
+        <div class="right1">右</div>
+    </div>
+
+    <div class="parent2">
+        <div class="left2">左</div>
+        <div class="right2">右</div>
+    </div>
+
+ 
+
+</body>
+
+</html>
