@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flex布局</title>
+    <style>
+        /* init */
+
+        .divs {
+            width: 100px;
+            height: 100px;
+            line-height: 100px;
+            text-align: center;
+        }
+
+        .flex-row1 {
+            background: rosybrown;
+        }
+
+        .flex-row2 {
+            background-color: brown;
+        }
+
+        .flex-row3 {
+            background-color: yellowgreen;
+        }
+
+        .flex-row4 {
+            background-color: rgb(4, 190, 247);
+        }
+
+        .flex-row5 {
+            background-color: plum;
+        }
+
+        .flex-row6 {
+            background-color: aqua;
+        }
+
+        .flex-row7 {
+            background-color: firebrick;
+        }
+
+        .flex-row8 {
+            background-color: rgb(243, 0, 203)
+        }
+
+        .flex-row9 {
+            background-color: navy;
+        }
+
+
+        /* flex-direction */
+        .flex-direction-row {
+            display: flex;
+            flex-direction: row;
+        }
+
+        .flex-direction-row-reverse {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        .flex-direction-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .flex-direction-column-reverse {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+
+        /* flex-wrap */
+
+        .flex-wrap-nowrap {
+            display: flex;
+            flex-wrap: nowrap;
+        }
+
+        .flex-wrap-wrap {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .flex-wrap-wrap-reverse {
+            display: flex;
+            flex-wrap: wrap-reverse;
+        }
+
+        /* justify-content */
+        .justify-content-flex-start {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .justify-content-flex-end {
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .justify-content-center {
+            display: flex;
+            justify-content: center;
+        }
+
+        .justify-content-space-between {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .justify-content-space-around {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        /* align-items */
+        .align-items-stretch {
+            display: flex;
+            height: 100px;
+            align-items: stretch;
+        }
+
+        .align-items-flex-start {
+            display: flex;
+            height: 100px;
+            align-items: flex-start;
+        }
+
+        .align-items-flex-end {
+            display: flex;
+            height: 100px;
+            align-items: flex-end;
+
+        }
+
+        .align-items-center {
+            display: flex;
+            height: 100px;
+            align-items: center;
+        }
+
+        .align-items-baseline {
+            display: flex;
+            height: 100px;
+            align-items: baseline;
+        }
+
+        /* order */
+        .orders {
+            display: flex;
+        }
+        /* flex-basis */
+        .flex-basiss {
+            display: flex;
+        }
+        /* flex-grow */
+        .flex-grows {
+            display: flex;
+        }
+        /* flex-shrink */
+        .flex-shrinks {
+            display: flex;
+        }
+        /* align-self */
+        .align-selfs{
+            display: flex;
+            align-items: flex-start;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>flex容器</h1>
+    <h3>flex-direction</h3>
+    <p>row:</p>
+    <div class="flex-direction-row">
+        <div class="divs flex-row1">1</div>
+        <div class="divs flex-row2">2</div>
+        <div class="divs flex-row3">3</div>
+    </div>
+    <p>row-reverse:</p>
+    <div class="flex-direction-row-reverse">
+        <div class="divs flex-row1">1</div>
+        <div class="divs flex-row2">2</div>
+        <div class="divs flex-row3">3</div>
+    </div>
+    <p>column:</p>
+    <div class="flex-direction-column">
+        <div class="divs flex-row1">1</div>
+        <div class="divs flex-row2">2</div>
+        <div class="divs flex-row3">3</div>
+    </div>
+    <p>column-reverse:</p>
+    <div class="flex-direction-column-reverse">
+        <div class="divs flex-row1">1</div>
+        <div class="divs flex-row2">2</div>
+        <div class="divs flex-row3">3</div>
+    </div>
+    <h3>flex-wrap</h3>
+    <p>nowrap</p>
+    <div class="flex-wrap-nowrap">
+        <div class="divs flex-row1">1</div>
+        <div class="divs flex-row2">2</div>
+        <div class="divs flex-row3">3</div>
+        <div class="divs flex-row4">4</div>
+        <div class="divs flex-row5">5</div>
+        <div class="divs flex-row6">6</div>
+    </div>
+    <p>wrap</p>
+    <div class="flex-wrap-wrap">
+        <div class="divs flex-row1">1</div>
+        <div class="divs flex-row2">2</div>
+        <div class="divs flex-row3">3</div>
+        <div class="divs flex-row4">4</div>
+        <div class="divs flex-row5">5</div>
+        <div class="divs flex-row6">6</div>
+    </div>
+    <p>wrap-reverse</p>
+    <div class="flex-wrap-wrap-reverse">
+        <div class="divs flex-row1">1</div>
+        <div class="divs flex-row2">2</div>
+        <div class="divs flex-row3">3</div>
+        <div class="divs flex-row4">4</div>
+        <div class="divs flex-row5">5</div>
+        <div class="divs flex-row6">6</div>
+    </div>
+
+    <h3>justify-content</h3>
+    <p>flex-start</p>
+    <div class="justify-content-flex-start">
+        <div class="divs flex-row1">1</div>
+        <div class="divs flex-row2">2</div>
+        <div class="divs flex-row3">3</div>
+        <div class="divs flex-row4">4</div>
+        <div class="divs flex-row5">5</div>
+    </div>
+    <p>flex-end</p>
+    <div class="justify-content-flex-end">
+        <div class="divs flex-row1">1</div>
+        <div class="divs flex-row2">2</div>
+        <div class="divs flex-row3">3</div>
+        <div class="divs flex-row4">4</div>
+        <div class="divs flex-row5">5</div>
+    </div>
+    <p>center</p>
+    <div class="justify-content-center">
+        <div class="divs flex-row1">1</div>
+        <div class="divs flex-row2">2</div>
+        <div class="divs flex-row3">3</div>
+        <div class="divs flex-row4">4</div>
+        <div class="divs flex-row5">5</div>
+    </div>
+    <p>space-between</p>
+    <div class="justify-content-space-between">
+        <div class="divs flex-row1">1</div>
+        <div class="divs flex-row2">2</div>
+        <div class="divs flex-row3">3</div>
+        <div class="divs flex-row4">4</div>
+        <div class="divs flex-row5">5</div>
+    </div>
+    <p>space-around</p>
+    <div class="justify-content-space-around">
+        <div class="divs flex-row1">1</div>
+        <div class="divs flex-row2">2</div>
+        <div class="divs flex-row3">3</div>
+        <div class="divs flex-row4">4</div>
+        <div class="divs flex-row5">5</div>
+    </div>
+
+    <h3>align-items</h3>
+    <p>stretch</p>
+    <div class="align-items-stretch">
+        <div class="divs flex-row1">1</div>
+        <div class="divs flex-row2">2</div>
+        <div class="divs flex-row3">3</div>
+        <div class="divs flex-row4">4</div>
+        <div class="divs flex-row5">5</div>
+    </div>
+    <p>flex-start</p>
+    <div class="align-items-flex-start">
+        <div class="divs flex-row1" style="height: 20px;">1</div>
+        <div class="divs flex-row2" style="height: 40px;">2</div>
+        <div class="divs flex-row3" style="height: 60px;">3</div>
+        <div class="divs flex-row4" style="height: 80px;">4</div>
+        <div class="divs flex-row5" style="height: 100px;">5</div>
+    </div>
+    <p>flex-end</p>
+    <div class="align-items-flex-end">
+        <div class="divs flex-row1" style="height: 20px;">1</div>
+        <div class="divs flex-row2" style="height: 40px;">2</div>
+        <div class="divs flex-row3" style="height: 60px;">3</div>
+        <div class="divs flex-row4" style="height: 80px;">4</div>
+        <div class="divs flex-row5" style="height: 100px;">5</div>
+
+    </div>
+    <p>center</p>
+    <div class="align-items-center">
+        <div class="divs flex-row1" style="height: 20px;">1</div>
+        <div class="divs flex-row2" style="height: 40px;">2</div>
+        <div class="divs flex-row3" style="height: 60px;">3</div>
+        <div class="divs flex-row4" style="height: 80px;">4</div>
+        <div class="divs flex-row5" style="height: 100px;">5</div>
+
+    </div>
+    <p>baseline</p>
+    <div class="align-items-baseline">
+        <div class="divs flex-row1" style="height: 20px;">1</div>
+        <div class="divs flex-row2" style="height: 40px;">2</div>
+        <div class="divs flex-row3" style="height: 60px;">3</div>
+        <div class="divs flex-row4" style="height: 80px;">4</div>
+        <div class="divs flex-row5" style="height: 100px;">5</div>
+    </div>
+
+    <h1>flex项目</h1>
+    <h3>order</h3>
+    <div class="orders">
+        <div class="divs flex-row1" style="order: -2;">-2</div>
+        <div class="divs flex-row2" style="order: -1;">-1</div>
+        <div class="divs flex-row3" style="order: 2;">0</div>
+        <div class="divs flex-row4" style="order: 1;">1</div>
+        <div class="divs flex-row5" style="order: 2;">2</div>
+    </div>
+
+    <h3>flex-basis</h3>
+    <div class="flex-basiss">
+        <div class="divs flex-row1" style="flex-basis: 58px;">58px</div>
+        <div class="divs flex-row2" style="flex-basis: 70px;">70px</div>
+        <div class="divs flex-row3" style="flex-basis: 100px;">100px</div>
+        <div class="divs flex-row4" style="flex-basis: 150px;">150px</div>
+        <div class="divs flex-row5" style="flex-basis: 200px;">200px</div>
+    </div>
+
+    <h3>flex-grow</h3>
+    <div class="flex-grows">
+        <div class="divs flex-row1" style="flex-grow: 1">1</div>
+        <div class="divs flex-row2" style="flex-grow: 5">5</div>
+        <div class="divs flex-row3" style="flex-grow: 3;">3</div>
+        <div class="divs flex-row4" style="flex-grow: 1;">1</div>
+        <div class="divs flex-row5" style="flex-grow: 0;">0</div>
+    </div>
+
+    <h3>flex-shrink</h3>
+    <div class="flex-shrinks">
+        <div class="divs flex-row1" style="flex-shrink: 1">1</div>
+        <div class="divs flex-row2" style="flex-shrink: 5">5</div>
+        <div class="divs flex-row3" style="flex-shrink: 3;">3</div>
+        <div class="divs flex-row4" style="flex-shrink: 1;">1</div>
+        <div class="divs flex-row5" style="flex-shrink: 0;">0</div>
+        <div class="divs flex-row6" style="flex-shrink: 6;">6</div>
+        <div class="divs flex-row7" style="flex-shrink: 0;">0</div>
+        <div class="divs flex-row8" style="flex-shrink: 0;">0</div>
+    </div>
+
+    <h3>align-self</h3>
+    <div class="align-selfs">
+        <div class="divs flex-row1" style="align-self: flex-end">1</div>
+        <div class="divs flex-row2" style="align-self: flex-end">2</div>
+        <div class="divs flex-row3" style="align-self: flex-end;">3</div>
+        <div class="divs flex-row4" style="align-self: center;">4</div>
+        <div class="divs flex-row5" style="align-self: flex-end;">5</div>
+           </div>
+</body>
+
+</html>
