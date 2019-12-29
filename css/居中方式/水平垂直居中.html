@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS常见布局总结</title>
+    <style>
+        .parent1 {
+            width: 1000px;
+            height: 200px;
+            background-color: #ddd;
+            text-align: center;
+            display: table-cell;
+            vertical-align: middle;
+        }
+
+        .child1 {
+            width: 100px;
+            height: 100px;
+            background-color: #c9394a;
+            display: inline-block;
+        }
+
+
+        .parent2 {
+            width: 1000px;
+            height: 200px;
+            background-color: #ddd;
+           position: relative;
+        }
+
+        .child2 {
+            width: 100px;
+            height: 100px;
+            background-color: #c9394a;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+        }
+        
+        .parent3 {
+            width: 1000px;
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .child3 {
+            width: 100px;
+            height: 100px;
+            background-color: #c9394a;
+        }
+    </style>
+</head>
+
+<body>
+    <p>inline-block+text-align+table-cell+vertical-align</p>
+    <div class="parent1">
+        <div class="child1">child1</div>
+    </div>
+    <br>
+    <p>absolute+transform</p>
+    <div class="parent2">
+        <div class="child2">child2</div>
+    </div>
+    <br>
+    <p>flex+justify-content+align-items</p>
+    <div class="parent3">
+        <div class="child3">child3</div>
+    </div>
+</body>
+
+</html>
