@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flex骰子布局实战</title>
+    <style>
+        .main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content:space-evenly;
+        }
+        .box {
+            background-color: #00FFFF;
+            display: flex;
+            width: 300px;
+            height: 300px;
+        }
+        .box2{
+            justify-content: center;
+        }
+        .box3{
+            justify-content:flex-end;
+        }
+        .box4{  
+            flex-direction: column;
+            justify-content:center;
+        
+        }
+        .box5{   
+            flex-direction: column;
+            justify-content:center;
+            align-items: center;
+        }
+        .box6{
+            flex-direction: column;
+            justify-content:center;
+            align-items:flex-end;
+        }
+        .box7{
+            flex-direction: column;
+            justify-content:flex-end;
+        }
+        .box8{
+            flex-direction: column;
+            justify-content:flex-end;
+            align-items: center;
+        }
+        .box9{
+            flex-direction: column;
+            justify-content:flex-end;
+            align-items: flex-end;
+        }
+        
+        .item1{
+            background-color:rebeccapurple;
+            width:100px;
+            height:100px;
+            border:1px solid red;
+        }
+
+        .two-box{
+            width: 300px;
+            height: 300px;
+            display: flex;
+            background-color:goldenrod;
+        }
+        .two-box1 {
+           justify-content: space-around;
+        }
+        .two-box2 {
+           justify-content: space-between;
+        }
+        
+        .two-box3 {
+            flex-direction: column;
+           justify-content: space-between;
+        }
+        
+        .two-box4 {
+            align-items: center;
+           justify-content: space-between;
+        }
+        
+        .two-box5 {
+            flex-direction: column;
+            align-items: center;
+           justify-content: space-between;
+        }
+        .two-box9 {
+           justify-content: space-between;
+        }
+        
+        
+        .two-item1{
+            background-color:hotpink;
+            width:100px;
+            height:100px;
+            border:1px solid red;
+        }
+       
+       .three-box{
+            width: 300px;
+            height: 300px;
+            display: flex;
+            background-color:#FFF68F;
+       }
+       .three-item1{
+            background-color:#FF7F24;
+            width:100px;
+            height:100px;
+            border:1px solid red;
+        }
+        .three-item1:nth-child(2){
+            align-self: center;
+        }
+        .three-item2{
+            background-color:#FF7F24;
+            width:100px;
+            height:100px;
+            border:1px solid red;
+        }
+        .three-item2:nth-child(2){
+            align-self: center;
+        }
+        .three-item2:nth-child(3){
+            align-self: flex-end;
+        }
+        .force-box{
+            background-color: blue;
+            width: 300px;
+            height: 300px;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .force-item1{
+            background-color: orange;
+            width: 98px;
+            height: 98px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="box">
+            <span class="item1"></span>
+        </div>
+        <div class="box box2">
+            <span class="item1"></span>
+        </div>
+        <div class="box box3">
+            <span class="item1"></span>
+        </div>
+        <div class="box box4">
+            <span class="item1"></span>
+        </div>
+        <div class="box box5">
+            <span class="item1"></span>
+        </div>
+        <div class="box box6">
+            <span class="item1"></span>
+        </div>
+        <div class="box box7">
+            <span class="item1"></span>
+        </div>
+        <div class="box box8">
+            <span class="item1"></span>
+        </div>
+        <div class="box box9">
+            <span class="item1"></span>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="two-box two-box1">
+            <div class="two-item1"></div>
+            <div class="two-item1"></div>
+        </div>
+        <div class="two-box two-box2">
+            <div class="two-item1"></div>
+            <div class="two-item1"></div>
+        </div>
+        <div class="two-box two-box3">
+            <div class="two-item1"></div>
+            <div class="two-item1"></div>
+        </div>
+        <div class="two-box two-box4">
+            <div class="two-item1"></div>
+            <div class="two-item1"></div>
+        </div>
+        <div class="two-box two-box5">
+            <div class="two-item1"></div>
+            <div class="two-item1"></div>
+        </div>
+        <div class="two-box two-box6">
+            <div class="two-item1"></div>
+            <div class="two-item1" style="align-self: center;"></div>
+        </div>
+        <div class="two-box two-box7">
+            <div class="two-item1"></div>
+            <div class="two-item1" style="align-self: flex-end;"></div>
+        </div>
+        <div class="two-box two-box8">
+            <div class="two-item1"></div>
+            <div class="two-item1" style="align-self:center;"></div>
+        </div>
+        <div class="two-box two-box9">
+            <div class="two-item1"></div>
+            <div class="two-item1" style="align-self: flex-end;"></div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="three-box three-box1">
+            <div class="three-item1"></div>
+            <div class="three-item1"></div>
+            <div class="three-item1"></div>
+        </div>
+        <div class="three-box three-box2">
+            <div class="three-item2"></div>
+            <div class="three-item2"></div>
+            <div class="three-item2"></div>
+        </div>
+    </div>
+
+    <div class="main">
+        <div class="force-box force-box1">
+            <div class="force-item1"></div>
+            <div class="force-item1"></div>
+            <div class="force-item1"></div>
+            <div class="force-item1"></div>
+        </div>
+    </div>
+</body>
+</html>
