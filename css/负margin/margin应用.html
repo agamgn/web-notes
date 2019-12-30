@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>margin负值的应用</title>
+    <style>
+         .box {
+            position: relative;
+            width: 300px;
+            height: 300px;
+            background: #ddd;
+        }
+        .out {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+        }
+        .content {
+            width: 100px;
+            height: 100px;
+            margin: -50px 0 0 -50px;
+            background: lightblue;
+        }
+
+
+        .box1 {
+            float: left;
+            width: 400px;
+            height: 400px;
+            background: #ffeecc;
+        }
+        .list {
+            overflow: hidden;
+            margin-right: -20px; 
+        }
+        .item {
+            float: left;
+            width: 120px;
+            height: 400px;
+            margin-right: 20px;
+            background: #acacab;
+        }
+
+    </style>
+</head>
+<body>
+    <p>水平垂直居中</p>
+    <div class="box">
+        <div class="out">
+            <div class="content">水平垂直居中</div>
+        </div>
+    </div>
+
+    <p>列表项两端对齐</p>
+    <div class="box1">
+        <div class="list"> 
+            <div class="item"></div>
+            <div class="item"></div>
+            <div class="item"></div>
+        </div>
+    </div>
+
+</body>
+</html>

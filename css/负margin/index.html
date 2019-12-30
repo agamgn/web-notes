@@ -6,19 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>margin负值</title>
     <style>
-    .div1{
-background-color: red;
-margin-right:-100px;
-}
-.parent{
-  width:300px;
-  background-color: yellow;
-}
+      .main{
+        width:300px;
+        height: 300px;
+        border: 1px solid red;
+        margin:  100px auto;
+      }
+      .child {
+        height: 100px;
+        width: 100px;
+        text-align: center;
+        line-height: 100px;
+      }
+      .child1{
+        /* display: inline-block; */
+        background-color:lightcoral;
+        margin-top: -50px;
+        /* margin-left: -50px; */
+      }
+      .child2{
+        /* display: inline-block; */
+        background-color:yellowgreen;
+      }
+      .child3{
+        background-color:purple;
+      }
     </style>
 </head>
 <body>
-    <div class="parent">
-        <div class="div1">111</div>
-      </div>
+<div class="main">
+  <div class="child child1">1</div><div class="child child2">2</div>
+  <div class="child child3">3</div>
+</div>
 </body>
 </html>
