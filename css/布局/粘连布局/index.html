@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css布局</title>
+    <style>
+ * {
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+      .parent {
+        min-height: 100%;
+        background: pink;
+        text-align: center;
+        overflow: hidden;
+      }
+      .parent .main {
+        padding-bottom: 50px;
+      }
+      .footer {
+        height: 50px;
+        line-height: 50px;
+        background: deeppink;
+        text-align: center;
+        margin-top: -50px;
+      }
+
+    </style>
+</head>
+
+<body>
+    <div class="parent">
+        <div class="main">
+          content <br />
+          content <br />
+          content <br />
+        </div>
+      </div>
+      <div class="footer">footer</div>
+  
+</body>
+
+</html>

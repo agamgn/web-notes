@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>css布局</title>
+    <style>
+        .parent {
+            display: table;
+        }
+
+        .left,
+        .right {
+            width: 300px;
+            display: table-cell;
+        }
+
+        .left {
+            background-color: #c9394a;
+        }
+
+        .right {
+            background-color: #cccccc;
+        }
+
+        .parent1 {
+            overflow: hidden;
+        }
+
+        .left1,
+        .right1 {
+            width: 300px;
+            float: left;
+            padding-bottom: 9999px;
+            margin-bottom: -9999px;
+        }
+
+        .left1 {
+            background-color: #cccccc;
+        }
+
+        .right1 {
+            background-color: #c9394a;
+        }
+    </style>
+</head>
+
+<body>
+    <p>通过display的属性table实现等高布局</p>
+    <div class="parent">
+        <div class="left">left</div>
+        <div class="right">通过display的属性table实现等高布局
+            通过display的属性table实现等高布局
+            通过display的属性table实现等高布局
+            通过display的属性table实现等高布局
+        </div>
+    </div>
+
+    <p>padding+margin属性实现等高布局</p>
+    <div class="parent1">
+        <div class="left1">left</div>
+        <div class="right1">等高布局，padding+margin属性实现等高布局
+            等高布局，padding+margin属性实现等高布局
+            等高布局，padding+margin属性实现等高布局
+        </div>
+    </div>
+</body>
+
+</html>

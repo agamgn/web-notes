@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>css布局</title>
+    <style>
+    html,body {
+        margin: 0;
+    }
+    header {
+        height: 100px;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #cccccc;
+    }
+    .content {
+        position: fixed;
+        left: 0;
+        right: 0;
+        top: 100px;
+        bottom: 100px;
+        background-color: lightblue;
+        overflow: auto;
+    }
+    .content .left {
+        width: 300px;
+        height: 100%;
+        position: fixed;
+        left: 0;
+        top: 100px;
+        bottom: 100px;
+        background-color: lightcoral;
+    }
+    .content .right {
+        height: 100%;
+        margin-left: 300px;
+        background-color: lightgreen;
+    }
+    footer {
+        height: 100px;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        background-color: lightgray;
+    }
+    </style>
+</head>
+<body>
+    <header></header>
+    <div class="content">
+        <div class="left"></div>
+        <div class="right"></div>
+    </div>
+    <footer></footer>
+</body>
+</html>
