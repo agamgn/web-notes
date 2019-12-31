@@ -53,7 +53,6 @@ var adder = function(num) {
 
 var inc = adder(1);
 var dec = adder(-1);
-//inc, dec现在是两个新的函数,作用是将传入的参数值 (+/‐)1
 console.log(inc(99));//100
 console.log(dec(101));//100 
 console.log(adder(100)(2));//102 
