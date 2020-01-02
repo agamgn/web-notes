@@ -28,7 +28,7 @@
                 // 5、将 canRun 设置为 false，防止执行之前再被执行
                 canRun = false;
                 // 6、定时器
-                setTimeout(() => {
+                setTimeout(() => { 
                     func.call(this, arguments);
                     // 7、执行完事件（比如调用完接口）之后，重新将这个标志设置为 true
                     canRun = true;
