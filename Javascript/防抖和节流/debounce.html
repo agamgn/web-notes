@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>debounce</title>
+</head>
+
+<body>
+    <button id="button">防抖！</button>
+
+    <script>
+        window.onload = function () {
+            var Debounce = document.getElementById("button");
+            Debounce.addEventListener("click", debounce(sayDebounce, 1000));
+        }
+
+        // 1、防抖功能函数，接受传参
+        function debounce(func, time) {
+            // 3、创建一个标记用来存放定时器的返回值
+            let timer = null;
+            return function () {
+                // 4、把前一个定时器清除
+                clearTimeout(timer);
+                // 5、创建一个新的 setTimeout，这样就能保证点击按钮后的 interval 间隔内
+                // 如果用户还点击了的话，就不会执行 func 函数
+                timer = setTimeout(() => {
+                    func.call(this, arguments);
+                }, time);
+            };
+        }
+
+        // 2、需要进行防抖的事件处理
+        function sayDebounce() {
+            console.log("防抖成功！");
+        }
+
+    </script>
+</body>
+
+</html>
