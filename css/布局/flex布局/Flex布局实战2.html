@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Flex布局实战2,网格 \ 圣杯 \ 输入框 \ 悬挂式 \ 固定底栏 \ 流式布局</title>
+    <style>
+        /* 基本网格布局 */
+        .grid {
+            display: flex;
+        }
+
+        .grid-cell {
+            flex: 1;
+            border: 1px solid red;
+            height: 30px;
+            margin: 10px 15px;
+        }
+
+        .larger-height {
+            height: 200px;
+        }
+
+        /* 百分比布局 */
+        .u-1of2 {
+            flex: 0 0 50%;
+        }
+
+        .u-1of3 {
+            flex: 0 0 33.3333%;
+        }
+
+        .u-1of4 {
+            flex: 0 0 25%;
+        }
+
+
+        /* 圣杯布局 */
+        .box {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .box-body {
+            margin: 10px 0;
+            height: 200px;
+            display: flex;
+        }
+
+        .box-content {
+            flex: 1;
+            margin: 0px 10px;
+        }
+
+        .box-nav,
+        .box-ads {
+            flex: 0 0 12em;
+        }
+
+        .box-nav {
+            order: -1;
+        }
+
+        .box header,
+        .box footer,
+        .box-content,
+        .box-nav,
+        .box-ads {
+            border: 1px solid red;
+        }
+
+
+        /* 输入框布局 */
+        .input {
+            display: flex;
+        }
+
+        .input-field {
+            flex: 1;
+        }
+
+        .input-item {
+            border: 1px solid gray;
+        }
+
+        /* 悬挂式布局 */
+        .Media {
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .Media-figure {
+            margin-right: 1em;
+        }
+
+        .Media-body {
+            flex: 1;
+        }
+
+        /* 固定低栏布局 */
+        .site {
+            display: flex;
+            flex-direction: column;
+            min-height: 30vh;
+            border: 1px solid yellow;
+        }
+
+        .site-content {
+            flex: 1;
+        }
+
+        .site header,
+        .site main,
+        .site footer {
+            border: 1px solid red;
+        }
+
+        /* 流式布局 */
+        .box6 {
+            width: 200px;
+            height: 150px;
+            background-color: black;
+            display: flex;
+            flex-flow: row wrap;
+        }
+
+        .item6 {
+            box-sizing: border-box;
+            background-color: white;
+            flex: 0 0 25%;
+            height: 50px;
+            border: 1px solid red;
+        }
+    </style>
+</head>
+
+<body>
+    <p>一、网格布局</p>
+    <p>1、基本网格布局</p>
+    <p>最简单的网格布局，就是平均分布。在容器里面平均分配空间即可（flex:1）</p>
+    <div class="grid">
+        <div class="grid-cell">1/2</div>
+        <div class="grid-cell">1/2</div>
+    </div>
+    <div class="grid">
+        <div class="grid-cell">1/3</div>
+        <div class="grid-cell">1/3</div>
+        <div class="grid-cell">1/3</div>
+    </div>
+    <div class="grid">
+        <div class="grid-cell">1/4</div>
+        <div class="grid-cell">1/4</div>
+        <div class="grid-cell">1/4</div>
+        <div class="grid-cell">1/4</div>
+    </div>
+    <div class="grid">
+        <div class="grid-cell larger-height">Woohoo!</div>
+        <div class="grid-cell larger-height">dasdasd sdsscdasd asadasd</div>
+    </div>
+
+    <p>2、百分比布局</p>
+    <p>某个网格的宽度为固定的百分比(如下图的1/2、1/3、1/4)，其余网格平均分配剩余的空间</p>
+    <div class="grid">
+        <div class="grid-cell u-1of2">1/2</div>
+        <div class="grid-cell">auto</div>
+        <div class="grid-cell">auto</div>
+    </div>
+    <div class="grid">
+        <div class="grid-cell">auto</div>
+        <div class="grid-cell u-1of3">1/3</div>
+    </div>
+    <div class="grid">
+        <div class="grid-cell u-1of4">1/4</div>
+        <div class="grid-cell">auto</div>
+        <div class="grid-cell u-1of3">1/3</div>
+    </div>
+
+
+    <p>二、圣杯布局</p>
+    <div class="box">
+        <header>header</header>
+        <div class="box-body">
+            <div class="box-content">content</div>
+            <div class="box-nav">nav</div>
+            <div class="box-ads">ads</div>
+        </div>
+        <footer>footer</footer>
+    </div>
+
+
+    <p>三、输入框的布局</p>
+    <p>我们常常需要在输入框的前方添加提示，后方添加按钮。 </p>
+    <div class="input">
+        <span class="input-item">icon</span>
+        <input class="input-field">
+        <button class="input-item">btn</button>
+    </div>
+
+    <p>四、悬挂式布局</p>
+    <p>有时，主栏的左侧或右侧，需要添加一个图片栏。也可以理解成类似于微信聊天的场景：左边或右边为头像，另一边为文字内容。</p>
+    <div class="Media">
+        <img class="Media-figure" src="" alt="">
+        <p class="Media-body">...</p>
+    </div>
+
+    <p>五、固定的底栏</p>
+    <p>有时，页面内容太少，无法占满一屏的高度，底栏就会抬高到页面的中间。这时可以采用Flex布局，让底栏总是出现在页面的底部。</p>
+    <div class="site">
+        <header>header</header>
+        <main class="site-content">main </main>
+        <footer>footer</footer>
+    </div>
+
+    <p>六、流式布局</p>
+    <p>每行的项目数固定，会自动分行。</p>
+    <div class="box6">
+        <span class="item6"></span>
+        <span class="item6"></span>
+        <span class="item6"></span>
+        <span class="item6"></span>
+        <span class="item6"></span>
+        <span class="item6"></span>
+        <span class="item6"></span>
+        <span class="item6"></span>
+        <span class="item6"></span>
+    </div>
+
+
+</body>
+
+</html>
