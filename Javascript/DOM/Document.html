@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div class="main">
+        <ul>
+            <li>demo1</li>
+            <li>demo2</li>
+            <li>demo3</li>
+        </ul>
+        <div class="a">
+            <a name="first" href="http://www.baidu.com">百度</a>
+            <a name="second" href="http://www.jd.com">京东</a>
+            <a name="third" href="http://www.github.com">github</a>
+        </div>
+
+        <div class="form">
+            <form name="Form1"></form>
+            <form name="Form2"></form>
+            <form name="Form3"></form>
+        </div>
+    </div>
+
+    <div class="images">
+        <img border="0" src="" width="48" height="48">
+        <img border="0" src="" width="48" height="48">
+    </div>
+
+    <div class="links">
+        <img src="" width="145" height="126" usemap="#planetmap" />
+
+        <map name="planetmap">
+            <area id="venus" shape="circle" coords="124,58,8" alt="Venus" href="venus.htm" />
+        </map>
+    </div>
+
+    <div class="id" id="divid"></div>
+    <div class="name" name="divname"></div>
+    <script>
+        // Document 对象集合
+        // 1.all      提供对文档中所有 HTML 元素的访问。
+        console.log(document.all);
+        // 2.anchors     返回对文档中所有 anchors 对象的引用。
+        console.log(document.anchors);
+        // 3.Form     返回对文档中所有 Form 对象引用。
+        console.log(document.forms);
+        // 4.images 集合可返回对文档中所有 Image 对象的引用。
+        console.log(document.images);
+        // 5.links 集合可返回对文档中所有 Area 和 Link 对象的引用。
+        console.log(document.links);
+
+
+        // Document 对象属性
+        // 6.cookie	设置或返回与当前文档有关的所有 cookie。
+        console.log(document.cookie);
+        // 7.domain	返回当前文档的域名。
+        console.log(document.domain);
+        // 8.lastModified	返回文档被最后修改的日期和时间。
+        console.log(document.lastModified);
+        // 9.referrer	返回载入当前文档的文档的 URL。
+        console.log(document.referrer);
+        // 10.title	返回当前文档的标题。
+        console.log(document.title);
+        // 11.URL	返回当前文档的 URL。
+        console.log(document.URL);
+
+        // Document 对象方法
+        // 12.close()	关闭用 document.open() 方法打开的输出流，并显示选定的数据。
+        console.log(document.close());
+        // 13.getElementById()	返回对拥有指定 id 的第一个对象的引用。
+        console.log(document.getElementById("divid"));
+        // 14.getElementsByName()	返回带有指定名称的对象集合。
+        console.log(document.getElementsByName("divname"));
+        // 15.getElementsByTagName()	返回带有指定标签名的对象集合。
+        console.log(document.getElementsByTagName("div"));
+        // 16.open()	打开一个流，以收集来自任何 document.write() 或 document.writeln() 方法的输出。
+        console.log(document.open());
+        // 17.write()	向文档写 HTML 表达式 或 JavaScript 代码。
+        console.log(document.write("helolo"));
+        // 18.writeln()	等同于 write() 方法，不同的是在每个表达式之后写一个换行符。
+        console.log(document.writeln("helolo"));
+
+    </script>
+</body>
+
+</html>
