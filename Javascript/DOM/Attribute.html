@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Attribute</title>
+    <style>
+        .democlass {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="demos" id="demo">
+        dsfsd
+    </div>
+
+
+    <script>
+
+        // 在 HTML DOM 中，Attr 对象表示 HTML 属性。
+        // attr.isId	如果属性是 id 类型，则返回 true，否则返回 false。
+        var x = document.getElementById("demo");
+        x.innerHTML = x.attributes[0].isId;
+        console.log(x.attributes)
+        // attr.name	返回属性的名称。
+        console.log(x.attributes[0].name);
+        // attr.value	设置或返回属性的值。
+        console.log(x.attributes[0].value);
+        console.log(x.attributes[0].value = "ganin");
+        console.log(x.attributes[0].value);
+        // attr.specified	如果已指定属性，则返回 true，否则返回 false。
+        console.log(x.attributes[0].specified);
+
+        /**
+         * NamedNodeMap 对象
+        在 HTML DOM 中，NamedNodeMap 对象表示元素属性节点的无序集合。
+        NamedNodeMap 中的节点可通过名称或索引（数字）来访问。
+        */
+        // nodemap.getNamedItem()	从 NamedNodeMap 返回指定的属性节点。
+        console.log(x.attributes.getNamedItem("id"));
+        // nodemap.item()	返回 NamedNodeMap 中位于指定下标的节点。
+        console.log(x.attributes.item(1));
+        // nodemap.length	返回 NamedNodeMap 中的节点数。
+        console.log(x.attributes.length);
+        // nodemap.removeNamedItem()	移除指定的属性节点。
+        console.log(x.attributes.removeNamedItem("class"));
+        // nodemap.setNamedItem()	设置指定的属性节点（通过名称）。
+        var typ=document.createAttribute("class");
+        typ.nodeValue="democlass";
+        console.log(x.attributes.setNamedItem(typ));
+
+    </script>
+</body>
+
+</html>
