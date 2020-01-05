@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>VUE</title>
+</head>
+
+<body>
+    <div id="app">
+        {{message}}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app', // 表示当我们new的这个Vue实例, 要控制页面上的那个区域
+            data: { // data属性中，存放的是el中要用到的数据,这里的data就是MVVM中的M专门用来保存每个页面的数据
+                message: 'Hello Vue!'
+            },
+            methods: {}, // 这个methods属性中定义了当前Vue实例所有可用的方法,主要写业务逻辑
+            computed: {}, // 在computed中,可以定一些属性, 这些属性叫做计算属性,计算属性的本质就是一个方法,只不过我们在使用这些计算属性的时候是吧它们的名称直接当做属性来使用的,并不会把计算属性当做方法去调用
+            filters: {}, // 这个filters属性中定义了当前Vue实例中所有可用的过滤的方法 
+            watch: {}, // 使用这个属性,可以监听data中数据的变化,然后触发这个watch中对应的function处理函数
+            // router, // 挂载路由对象
+            directives:{}, // 这个directives属性定义了当前Vue实例中所有可用的自定义指令
+            beforeCreate() {
+                console.log("beforeCreate");
+            }, // 生命周期函数: 表示实例完全被创建之前,会执行这个函数
+            created() {
+                console.log("created");
+            }, // 生命周期函数: 表示实例被创建之后
+            beforeMounted() {
+                console.log("beforeMounted");
+            }, // 生命周期函数: 表示模板已经编译完成,但是还没有把模板渲染到页面中
+            mounted() {
+                console.log("mounted");
+            }, // 生命周期函数:表示模板已经编译完成,内存中的模板已经真实的渲染到了页面中去,已经可以看到渲染好的页面了
+            beforeUpdate() {
+                console.log("beforeUpdate");
+            }, // 生命周期函数: 表示当前界面还没有被更新,数据肯定被更新了
+            update() {
+                console.log("update");
+            }, // 生命周期函数: 表示当前页面和数据保持同步了,都是最新的
+            beforeDestroy() {
+                console.log("beforeDestroy");
+            }, // 生命周期函数: 表示Vue实例已经从运行阶段进入到销毁阶段
+            destroyed() {
+                console.log("destroyed");
+            } // 生命周期函数: 表示组件已经完全被销毁了
+
+
+        })
+    </script>
+</body>
+
+</html>

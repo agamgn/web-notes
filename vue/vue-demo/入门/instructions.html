@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>instructions</title>
+    <style>
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <!-- v-cloak 指令来解决屏幕闪动的问题，大型项目中不需要 -->
+        <p v-cloak>{{message}}</p>
+        <p v-text="msg">{{message}}</p>
+        <p v-html="msg">{{msg}}</p>
+        <!-- 属性绑定 -->
+        <p v-bind:title="msg">{{message}}</p>
+        <p :title="msg">{{message}}</p>
+        <input v-model="msgs"></input> // 修改imput输入框的值, 下面p标签绑定的内容会随之改变
+        <p>{{ msgs }}</p>
+        <li v-for="(item,index) in list" :key="index">
+            {{index}} --- {{item}}
+        </li>
+
+        <p v-if="flag">我在flag为true时候显示</p>
+        <p v-else>我在flag不为true的时候显示</p>
+        <p v-show="flag">我在flag为true的时候显示</p>
+
+        <!-- 事件绑定 -->
+        <input type="button" v-on:click="add" value="点击">
+        <input type="button" @click="add" value="点击">
+        <p>{{number}}</p>
+        <p>{{countComputed}}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                message: "ganin",
+                msg: "<h1>我是一个标签元素</h1>",
+                msgs: "",
+                list: [1, 2, 3, 4, 5],
+                flag: true,
+                number: 1
+            },
+            methods: {
+                add() {
+                    this.number++;
+                }
+            },
+            // // watch可以用来监视一些非DOM元素的改变, 这就是他的优势
+            // watch是一个对象, 键是需要观察的表达式, 值是对应的回调函数
+            watch: {
+                number: function () {
+                    console.log("number被我监听了")
+                }
+            },
+            computed:{
+                countComputed(){
+                    return this.number+1
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

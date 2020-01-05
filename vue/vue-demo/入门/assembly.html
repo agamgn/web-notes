@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>assembly</title>
+</head>
+<div id="app">
+    <custom></custom>
+    <customs></customs>
+
+    <template id="tmp">
+        <div>
+            <h1>我是customTwo</h1>
+        </div>
+    </template>
+
+
+    <a href="" @click.prevent="comName='login'">登录</a>
+    <a href="" @click.prevent="comName='register'">注册</a>
+
+    <!-- Vue提供了 component ,来展示对应名称的组件 -->
+    <!-- component 是一个占位符, :is 属性,可以用来指定要展示的组件的名称 -->
+    <component :is="comName"></component>
+
+   <!-- 通过自定义事件名称func以事件绑定机制@func="show"将父组件的show方法传递给子组件 -->
+
+    <child :mss="msg" @func="show"></child>
+    <p>{{childmsg}}</p>
+
+</div>
+
+<body>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+
+
+        // 组件名称是 字符串
+        Vue.component('login', {
+            template: '<h3>登录组件</h3>'
+        })
+
+        Vue.component('register', {
+            template: '<h3>注册组件</h3>'
+        })
+
+
+        Vue.component("custom", {
+            // 通过template属性指定了组件要展示的HTML结构
+            template: "<div> <h1>{{ msg }}</h1></div>",
+            data() {
+                return {
+                    msg: "我是组件中data的数据"
+                }
+            }
+        })
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                comName: 'login', // 当前 component 中的 :is 绑定的组件的名称
+                msg: "父组件",
+                childmsg:"",
+            },
+            components: {
+                // 第一种方式
+                "customs": {
+                    template: "<div><h1>我是customs</h1></div>"
+                },
+                // 第二种方式
+                "customTwo": {
+                    template: "#tmp"
+                },
+                "child": {
+                    props: ['mss'],
+                    data() {
+                        return {
+                            childmsg: "我是子组件的数据"
+                        }
+                    },
+                    template: `<div>
+                        我要引用父组件中的数据--{{mss}}
+                        <button @click="getchildmsg">点我向父组件传值</button>
+                    </div>
+                        `,
+                    methods:{
+                        getchildmsg(){
+                             // 触发父组件传过来的func方法，配合参数可以将子组件的数据传递给父组件
+                             // vm.$emit(evebtName, [...args]) 触发当前实例上的事件，附加参数会传给监听器回调。
+                             this.$emit("func",this.childmsg);
+                        }
+                    }
+                },
+            },
+            methods:{
+                    show (data){
+                        this.childmsg=data;
+                        
+                    }
+                }
+
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ref</title>
+</head>
+
+<body>
+    <!-- component
+    这个标签是用来展示组件的 -->
+    <div id="app">
+        <component :is="name"></component>
+
+        <!-- 插槽的作用 -->
+        <!-- 
+
+和HTML元素一样，我们经常需要向组件传递内容，例如：
+custom 是自定义的组件
+<custom> 
+    <div>我是在组件内添加的标签</div>
+</custom> 
+         -->
+        <custom>
+            <div>我是在组件内添加的标签</div>
+        </custom>
+
+        <!-- keep-alive
+当前标签包裹组件时，会缓存不活动的组
+件实例，而不是销毁它们，keep-alive是一个抽象组件：
+它自身不会渲染一个DOM元素，也不会出现在父组件中 -->
+        <!-- 主要用于保留组件状态或避免重新渲染。 -->
+        <keep-alive>
+            <component :is="views"></component>
+        </keep-alive>
+
+        <p ref='pdemo'>ref</p>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                msg: "agmagn",
+                name: "demos",//当前 component 中的 :is 绑定的组件的名称
+                views: "views"
+            },
+            components: {
+                "views": {
+                    template: `<div> 
+                <h1>我是自定的组件view</h1>
+            </div>`
+                },
+                "demos": {
+                    template: `<div> 
+                <h1>我是自定的组件一</h1>
+            </div>`
+                },
+                "custom": {
+                    template: `<div>
+                <h1>我是自定义组件custom</h1>
+                <slot></slot>
+            </div>`
+                }
+            },
+            mounted(){
+                console.log(this.$refs.pdemo)
+            }
+        })
+    </script>
+</body>
+
+</html>

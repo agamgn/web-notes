@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>animation</title>
+    <style>
+         /* 一般情况下， 元素的其实状态和终止状态的动画是一样的。
+         v-enter（这是一个时间点）是元素进入之前的其实状态，此时还没有开始进入。
+        v-lealve-to（这是一个时间点）是动画离开之后的终止状态，此时动画已经结束。 */
+        v-enter,
+        v-leave-to {
+            opctity: 0 translateX(150px)
+        }
+
+         /* v-enter-active是入场动画的时间段 */
+         /* v-leave-active是离场动画的时间段 */
+        v-enter-active,v-leave-active {
+            transition: all 0.4s ease
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 元素用一个transition元素包裹起来，这个元素是Vue官方提供的 -->
+    <!-- 设置 :duration="毫秒值" 属性来统一设置入场和离场动画的时长 -->
+    <!-- 例如：设置入场和离场的动画时长为200毫秒 -->
+<!-- 当然是可以设置对象的  :duration="{enter:200, leave:400}" -->
+    <transition :duration="200">
+        <h3>我被transition元素包裹有了动画效果</h3>
+    </transition>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+
+        })
+    </script>
+</body>
+
+</html>
