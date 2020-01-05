@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    body {
+        font-family: "Microsoft YaHei";
+    }
+
+    #tab {
+        width: 600px;
+        margin: 0 auto;
+    }
+
+    .tab-tit {
+        font-size: 0;
+        width: 600px;
+    }
+
+    .tab-tit a {
+        display: inline-block;
+        height: 40px;
+        line-height: 40px;
+        font-size: 16px;
+        width: 25%;
+        text-align: center;
+        background: #ccc;
+        color: #333;
+        text-decoration: none;
+    }
+
+    .tab-tit .cur {
+        background: #09f;
+        color: #fff;
+    }
+
+    .tab-con div {
+        border: 1px solid #ccc;
+        height: 400px;
+        padding-top: 20px;
+    }
+    .tab-con2 div{
+        border: 1px solid red;
+        height: 400px;
+        padding-top: 20px;
+    }
+</style>
+
+<body>
+    <div id="tab">
+        <div class="tab-tit">
+            <a href="javascript:;" @click='curId=0;curid="one"' :class="{'cur':curId===0}">html</a>
+            <a href="javascript:;" @click='curId=1;curid="two"' :class="{'cur':curId===1}">css</a>
+            <a href="javascript:;" @click='curId=2;curid="three"' :class="{'cur':curId===2}">js</a>
+            <a href="javascript:;" @click='curId=3;curid="forse"' :class="{'cur':curId===3}">vue</a>
+        </div>
+        <div class="tab-con">
+            <div class="html" v-show="curId===0">html</div>
+            <div class="css" v-show="curId===1">css</div>
+            <div class="js" v-show="curId===2">js</div>
+            <div class="vue" v-show="curId===3">vue</div>
+        </div>
+        <div class="tab-con2">
+            <component :is="curid"></component>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+
+<script>
+    new Vue({
+        el: '#tab',
+        data: {
+            curId: 0,
+            curid:"one"
+        },
+        components: {
+            "one":{
+                template:`<div>html</div>`
+            },
+            "two":{
+                template:`<div>css</div>`
+            },
+            "three":{
+                template:`<div>js</div>`
+            },
+            "forse":{
+                template:`<div>vue</div>`
+            }
+        },
+        methods: {}
+    })
+</script>
+
+</html>
