@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>父子组件传值</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+
+    <div id="app"></div>
+
+    <script src="https://cdn.bootcss.com/react/16.8.6/umd/react.development.js"></script>
+    <script src="https://cdn.bootcss.com/react-dom/16.8.6/umd/react-dom.development.js"></script>
+    <script src="https://cdn.bootcss.com/babel-standalone/6.26.0/babel.js"></script>
+    <script type="text/babel">
+        class Parent extends React.Component {
+            constructor(props){
+                super(props);
+                this.state={
+                    name:"agamgn"
+                }
+            }
+            render() {
+                return (
+                    <div>
+                        <div>父组件{this.state.name}</div>
+                        <Son attr={this.state.name} pfn={this.fn.bind(this)}/>
+                    </div>
+                    
+                )
+            }
+            fn(data){
+                this.setState({
+                    name:data
+                })
+            }
+        }
+        class Son extends React.Component{
+            render(){
+                return (
+                    <div>
+                    <div>我是子组件,父组件传的--{this.props.attr}</div>
+                        <button onClick={this.changeParent.bind(this,"agam")}>change parent</button>
+                    </div>
+                )
+            }
+            changeParent(text){
+                this.props.pfn(text);
+            }
+        }
+        window.onload = function () {
+            let title = document.getElementById("app");
+            ReactDOM.render(
+                <Parent />,
+                title
+            )
+        }
+    </script>
+</body>
+
+</html>

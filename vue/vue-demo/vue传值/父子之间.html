@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>父子组件传值</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <h1>login组件</h1>
+        <login :names=name @events="change($event)"></login>
+        {{name}}
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                name: "agamgn"
+                
+            },
+            methods: {
+                change(data) {
+                    this.name = data;
+                }
+            },
+            components: {
+                login: {
+                    props: ["names"],
+                    data() {
+                        return {
+                            age: 18,
+                            newname:"agam"
+                        }
+                    },
+                    template: `<div><div>欢迎登录{{names}}--{{age}}
+                    </div><button @click='toParent'>点我改变父组件的数据</button></div>`,
+                    methods: {
+                        toParent: function () {
+                            this.$emit('events', this.newname)
+                        }
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
