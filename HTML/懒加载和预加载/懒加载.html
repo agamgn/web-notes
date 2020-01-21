@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <img src="image/loading.gif" data-src="image/1.jpg" alt="">
+    <img src="image/loading.gif" data-src="image/2.jpg" alt="">
+    <img src="image/loading.gif" data-src="image/3.jpg" alt="">
+    <img src="image/loading.gif" data-src="image/4.jpg" alt="">
+    <img src="image/loading.gif" data-src="image/5.jpg" alt="">
+    <img src="image/loading.gif" data-src="image/6.jpg" alt="">
+    <script>
+        class LazyLoad {
+            constructor() {
+                this.clientHeight = window.innerHeight  // 可视区高度
+                this.initLoad()  // 初始加载
+                this.bindScrollEvent()
+            }
+            initLoad() {
+                this.lazyLoad()
+            }
+            bindScrollEvent() {
+                let fn = this.throttle(() => {
+                    this.lazyLoad()
+                }, 300)  // 300ms可执行一次 
+                document.addEventListener('scroll', fn)
+            }
+            lazyLoad() {
+                let images = document.querySelectorAll("img[data-src]")
+                Array.from(images).forEach((img) => {
+                    let offsetTop = this.getPosition(img)
+                    if (offsetTop < this.clientHeight) {
+                        img.src = img.getAttribute("data-src")
+                        img.removeAttribute('data-src', '')  // 每次删除已加载图片的 data-src 属性, 避免下次再遍历到, 提升性能
+                    }
+                })
+            }
+            getPosition(el) {
+                return el.getBoundingClientRect().top
+            }
+            throttle(fn, timeout) {  // 节流
+                let perious = 0
+                return function () {
+                    let now = +new Date()
+                    let args = arguments
+                    if (now - perious >= timeout) {
+                        perious = now
+                        fn.apply(this, args)
+                    }
+                }
+            }
+        }
+        let lazyLoadObj = new LazyLoad()
+        console.log(lazyLoadObj.clientHeight)
+    </script>
+</body>
+
+</html>
