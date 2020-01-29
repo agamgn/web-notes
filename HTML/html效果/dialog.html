@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <button id="open">点击我</button>
+    <dialog id="dialog">
+        <button id="close">close</button>
+        <ul>
+            <li>
+                <h3>hello world</h3>
+                <p>agamgn</p>
+            </li>
+        </ul>
+    </dialog>
+
+<script>
+const dialog = document.getElementById('dialog');
+const openBtn = document.getElementById('open');
+const closeBtn = document.getElementById('close');
+
+openBtn.addEventListener('click', function() {
+	dialog.setAttribute('open', true);
+})
+
+closeBtn.addEventListener('click', function() {
+	dialog.removeAttribute('open');
+});
+</script>
+</body>
+</html>
