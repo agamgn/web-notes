@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #my-text {
+            font-size: 60px;
+            color: #a52a2a;
+        }
+    </style>
+</head>
+<body>
+    <div>div</div>
+    <p id="showp"></p>
+    <script>
+    let list=document.querySelector("div");
+    list.setAttribute("id","my-text");
+    let id=list.getAttribute("id");
+    let p=document.querySelector("#showp");
+    p.innerHTML=id;
+    </script>
+</body>
+</html>
