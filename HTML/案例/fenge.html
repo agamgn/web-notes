@@ -1,0 +1,472 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name = "viewport" content = "width = device-width, height = device-height, maximum-scale = 1.0, user-scalable = no">
+
+<style type = "text/css">
+.wx_button {
+    border-spacing:0px;
+    border-style: solid;
+    border-color: #38f;
+    border-width: 1px;
+    
+    display: inline-block;
+    line-height: 2em; 
+    text-align: center;
+    vertical-align: middle;
+    background-color: #f8f8f8;
+    
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.wx_image {
+    width: 73px;
+    height: 73px;
+    margin: 1px;
+    border:1px solid #000;
+}
+.wx_list {
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+}
+.wx_doing {
+    position: fixed;
+    top: 40%;
+    height: 4em;
+    left: 20%;
+    right: 20%;
+    
+    background-color: #FFF;
+    border: 3px solid #000;
+    display: inline-block;
+    line-height: 4em;
+    vertical-align: middle;
+    text-align: center;
+}
+</style>
+
+<title>微信四九城</title>
+
+</head>
+
+<body>
+    <h3>微信四九城</h3>
+    <div style = "margin: 1em 0">用于微信四分格和九分格图片的分割生成<br/>纯前端，保护您的隐私</div>
+    <div>
+        <input id = "upload_input" type = "file" accept = "image/*" style = "display: none;" onchange = "loadPic()">
+        <label for = "upload_input"><div class = "wx_button" style = "width: 8em;">点击选择图片</div></label>
+        <input id = "nine" type = "radio" name = "count" onchange = "draw()" checked = "checked" /><label for = "nine">九格</label>
+        <input id = "four" type = "radio" name = "count" onchange = "draw()" /><label for = "four">四格</label>
+    </div>
+    <div id = "make" style = "margin: 1em 0; display: none;">
+        <canvas id = "canvas" style = "margin: 0 0 1em 0; border: 1px solid #000;">不支持本功能</canvas><br/>
+        <div style = "margin: 0 0 1em 0;">放大：<input type = "range" id = "enlarge" min = "1" max = "3" step = "0.01" value = "0" style = "width: 15em;" oninput = "draw()"></input></div>
+        <div id = "qua" style = "margin: 0 0 1em 0;">质量：<input type = "range" id = "quality" min = "0" max = "100" step = "1" value = "75" style = "width: 15em;"></input></div>
+        <div style = "margin: 0 0 1em 0;"><input id = "alpha" type = "checkbox" /><label for = "alpha">保留透明通道</label></div>
+        <div style = "margin: 0 0 1em 0;">
+            <input id = "normal" type = "radio" name = "style" onchange = "draw()" checked = "checked" /><label for = "normal">原始分割</label>
+            <input id = "roundrect" type = "radio" name = "style" onchange = "draw()" /><label for = "roundrect">圆角分割</label>
+            <input id = "round" type = "radio" name = "style" onchange = "draw()" /><label for = "round">圆形分割</label>
+        </div>
+        <div class = "wx_button" style = "width: 8em; margin: 0 8px 0 0;" onclick = "spin()">旋转90°</div><div class = "wx_button" style = "width: 8em;" onclick = "make()">生成</div>
+    </div>
+    <div id = "result" style = "margin: 1em 0; display: none;"></div>
+    <div id = "doing" class = "wx_doing" style = "display: none;">处理中，请勿操作</div>
+    <hr/>
+    
+<script type = "text/javascript">
+var touchdown = false, preclick;
+var l, t;
+var img;
+var doing = false;
+CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r)
+{
+    if (w < 2 * r) {
+        r = w / 2;
+    }
+    if (h < 2 * r) {
+        r = h / 2;
+    }
+    
+    this.beginPath();
+    this.moveTo(x + r, y);
+    this.arcTo(x + w, y, x + w, y + h, r);
+    this.arcTo(x + w, y + h, x, y + h, r);
+    this.arcTo(x, y + h, x, y, r);
+    this.arcTo(x, y, x + w, y, r);
+    this.closePath();
+    return this;
+}
+function isSafari()
+{
+    return (/Safari/.test(navigator.userAgent) && !/Chrome/.test(navigator.userAgent));
+}
+function loadPic(e)
+{
+    if (doing) {
+        return;
+    }
+    
+    var selectedFile = document.getElementById('upload_input').files[0];
+    readFileData(selectedFile, function(image) {
+        const test = document.getElementById('upload_input');
+        test.outerHTML = test.outerHTML;
+        const count = document.getElementById("nine").checked ? 9 : 4;
+        l = t = 0;
+        document.getElementById("enlarge").value = 0;
+        
+        const can = document.getElementById("canvas");
+        try {
+            returnToEdit(false);
+            can.width = can.height = Math.min(window.innerWidth * 0.95, window.innerHeight * 0.75);
+            
+            if("ontouchstart" in window) {
+                can.addEventListener("touchstart", down, false);
+                can.addEventListener("touchmove", move, false);
+                window.addEventListener("touchend", up, false);
+            }
+            else {
+                can.addEventListener("mousedown", down, false);
+                can.addEventListener("mousemove", move, false);
+                window.addEventListener('mouseup', up, false);
+            }
+            draw();
+            window.scrollTo(0, can.offsetTop);
+        }
+        catch(e) {}
+    });
+}
+function readFileData(file, callback)
+{
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = function(e) {
+        img = new Image();
+        img.src = e.target.result;
+        img.onload = function() {
+            var s = img.src.match(/data:.*;/)[0].match(/image.*;/)[0].match(/.*[^;]/)[0];
+            document.getElementById("qua").style.display = (s == "image/jpeg" || s == "image/webp") ? "" : "none";
+            callback(img);
+        }
+    }
+}
+function draw()
+{
+    if (!img) {
+        return;
+    }
+    
+    const count = document.getElementById("nine").checked ? 9 : 4;
+    const len = Math.min(img.width, img.height);
+    const can = document.getElementById("canvas");
+    const ctx = can.getContext("2d");
+    const width = can.width;
+    const e = document.getElementById("enlarge").value;
+    
+    if (l + len / e > img.width) {
+        l = img.width - len / e;
+    }
+    else if (l < 0) {
+        l = 0;
+    }
+    if (t + len / e > img.height) {
+        t = img.height - len / e;
+    }
+    else if (t < 0) {
+        t = 0;
+    }
+    
+    ctx.clearRect(0, 0, can.width, can.height);
+    ctx.save();
+    switch(getRadioValue("style"))
+    {
+    case 1:
+        ctx.roundRect(0, 0, width, width, width / Math.sqrt(count) / 2);
+        ctx.clip();
+        break;
+        
+    case 2:
+        ctx.beginPath();
+        ctx.arc(width / 2, width / 2, width / 2, 0, 2 * Math.PI);
+        ctx.clip();
+        break;
+    }
+    ctx.drawImage(img, l, t, len, len, 0, 0, width * e, width * e);
+    ctx.strokeStyle = "#fff";
+    if (count == 9) {
+        ctx.lineWidth = width / 892 * 8;
+        ctx.beginPath();
+        ctx.moveTo(width / 3, 0);
+        ctx.lineTo(width / 3, width);
+        ctx.moveTo(width / 3 * 2, 0);
+        ctx.lineTo(width / 3 * 2, width);
+        ctx.moveTo(0, width / 3);
+        ctx.lineTo(width, width / 3);
+        ctx.moveTo(0, width / 3 * 2);
+        ctx.lineTo(width, width / 3 * 2);
+        ctx.stroke();
+    }
+    else {
+        ctx.lineWidth = width / 592 * 8;
+        ctx.beginPath();
+        ctx.moveTo(width / 2, 0);
+        ctx.lineTo(width / 2, width);
+        ctx.moveTo(0, width / 2);
+        ctx.lineTo(width, width / 2);
+        ctx.stroke();
+    }
+    ctx.restore();
+}
+function getPos(c, e)
+{
+    var box = c.getBoundingClientRect();
+    
+    var x1, y1;
+    if ("ontouchstart" in window) {
+        if (e.targetTouches.length) {
+            x1 = e.targetTouches[0].clientX;
+            y1 = e.targetTouches[0].clientY;
+        }
+        else {
+            x1 = e.changedTouches[0].clientX;
+            y1 = e.changedTouches[0].clientY;
+            touchdown = false;
+        }
+    }
+    else {
+        x1 = e.clientX;
+        y1 = e.clientY;
+    }
+    
+    return {
+        x: (x1 - box.left) * (c.width / box.width),
+        y: (y1 - box.top) * (c.height / box.height)
+    };
+}
+function prevent(e)
+{
+    if(window.event) {
+        window.event.returnValue = false;
+    }
+    else {
+        e.preventDefault();
+    }
+}
+function down(e)
+{
+    if (doing) {
+        return;
+    }
+    prevent(e);
+
+    const p = getPos(document.getElementById("canvas"), e);
+    if ("ontouchstart" in window) {
+        if (!touchdown) {
+            touchdown = true;
+        }
+        else {
+            return;
+        }
+    }
+    
+    preclick = p;
+}
+function up(e)
+{
+    getPos(document.getElementById("canvas"), e);
+    if (touchdown) {
+        return;
+    }
+    
+    preclick = null;
+}
+function move(e)
+{
+    if (!preclick) {
+        return;
+    }
+    
+    const en = document.getElementById("enlarge").value;
+    const p = getPos(document.getElementById("canvas"), e);
+    const len = Math.min(img.width, img.height);
+    const can = document.getElementById("canvas");
+    
+    l -= (p.x - preclick.x) / can.width * len / en;
+    t -= (p.y - preclick.y) / can.height * len / en;
+    
+    draw();
+    preclick.x = p.x;
+    preclick.y = p.y;
+}
+function make()
+{
+    setDoing(true);
+    try {
+        const e = document.getElementById("enlarge").value;
+        const len = Math.min(img.width, img.height);
+        const can = document.createElement("canvas");
+        can.width = can.height = len;
+        const ctx = can.getContext("2d");
+        
+        var s = img.src.match(/data:.*;/)[0].match(/image.*;/)[0].match(/.*[^;]/)[0];
+        if (document.getElementById("alpha").checked && getRadioValue("style") != 0) {
+            s = "image/png";
+            ctx.clearRect(0, 0, can.width, can.height);
+        }
+        else if (!document.getElementById("alpha").checked) {
+            ctx.fillStyle = "#fff";
+            ctx.fillRect(0, 0, len, len);
+        }
+        switch(getRadioValue("style"))
+        {
+        case 1:
+            ctx.roundRect(0, 0, len, len, len / Math.sqrt(document.getElementById("nine").checked ? 9 : 4) / 2);
+            ctx.clip();
+            break;
+            
+        case 2:
+            ctx.beginPath();
+            ctx.arc(len / 2, len / 2, len / 2, 0, 2 * Math.PI);
+            ctx.clip();
+            break;
+        }
+        ctx.drawImage(img, l, t, len, len, 0, 0, len * e, len * e);
+        
+        var i = new Image();
+        i.src = can.toDataURL(s, 1);
+        i.onload = function() {
+            const len = this.width;
+            const count = document.getElementById("nine").checked ? 9 : 4;
+            const can = document.createElement("canvas");
+            const ctx = can.getContext("2d");
+            const quality = document.getElementById("quality");
+            
+            let inner = "";
+            if (isSafari()) {
+                inner += "长按图片保存";
+            }
+            else {
+                inner += "点击图片保存";
+            }
+            
+            var time = parseInt((new Date()).getTime() / 1000);
+            var s = this.src.match(/data:.*;/)[0].match(/image.*;/)[0].match(/.*[^;]/)[0];
+            if (count == 9) {
+                const size = can.width = can.height = len / 892 * 292;
+                for (let i = 0, x = 0, y = 0, index = 1; i < 3; i++) {
+                    inner += '<div class="wx_list">';
+                    for (let j = 0; j < 3; j++, index++) {
+                        ctx.clearRect(0, 0, can.width, can.height);
+                        ctx.drawImage(this, x, y, size, size, 0, 0, can.width, can.height);
+                        let url = can.toDataURL(s, quality.value / 100);
+                        inner += single(url, time, index);
+                        x += size + len / 892 * 8;
+                    }
+                    inner += "</div>";
+                    x = 0;
+                    y += size + len / 892 * 8;
+                }
+            }
+            else {
+                const size = can.width = can.height = len / 592 * 292;
+                for (let i = 0, x = 0, y = 0, index = 1; i < 2; i++) {
+                    inner += '<div class="wx_list">';
+                    for (let j = 0; j < 2; j++, index++) {
+                        ctx.clearRect(0, 0, can.width, can.height);
+                        ctx.drawImage(this, x, y, size, size, 0, 0, can.width, can.height);
+                        let url = can.toDataURL(s, quality.value / 100);
+                        inner += single(url, time, index);
+                        x += size + len / 592 * 8;
+                    }
+                    inner += "</div>";
+                    x = 0;
+                    y += size + len / 592 * 8;
+                }
+            }
+            inner += '<div class = "wx_button" style = "width: 8em; margin: 8px 0 0 0;" onclick = "returnToEdit(true)">返回编辑</div>'
+            const r = document.getElementById("result");
+            r.innerHTML = inner;
+            r.style.display = "";
+            document.getElementById("make").style.display = "none";
+            setDoing(false);
+        };
+    }
+    catch(e) {
+        alert("转存失败！");
+        setDoing(false);
+    }
+}
+function returnToEdit(scroll)
+{
+    document.getElementById("make").style.display = "";
+    document.getElementById("result").innerHTML = "";
+    document.getElementById("result").style.display = "none";
+    if (scroll) {
+        window.scrollTo(0, document.getElementById("canvas").offsetTop);
+    }
+}
+function spin()
+{
+    setDoing(true);
+    try {
+        const can = document.createElement("canvas");
+        can.width = img.height;
+        can.height = img.width;
+        
+        const ctx = can.getContext("2d");
+        ctx.translate(can.width / 2, can.height / 2);
+        ctx.rotate(Math.PI / 2);
+        ctx.drawImage(img, 0, 0, img.width, img.height, -img.width / 2, -img.height / 2, img.width, img.height);
+        
+        var i = new Image();
+        var s = img.src.match(/data:.*;/)[0].match(/image.*;/)[0].match(/.*[^;]/)[0];
+        i.src = can.toDataURL(s, 1);
+        i.onload = function() {
+            setDoing(false);
+            img = this;
+            l = t = 0;
+            draw();
+        }
+    }
+    catch(e) {
+        alert("旋转失败！");
+        setDoing(false);
+    }
+}
+function setDoing(d)
+{
+    doing = d;
+    document.getElementById("nine").disabled = doing;
+    document.getElementById("four").disabled = doing;
+    document.getElementById("doing").style.display = doing ? "" : "none";
+}
+function getRadioValue(name)
+{
+    var l = document.getElementsByName(name);
+    for (var i = 0; i < l.length; i++) {
+        if (l[i].checked) {
+            return i;
+        }
+    }
+    return 0;
+}
+function single(url, time, index)
+{
+    if (isSafari()) {
+        return `<img src=${url} class="wx_image"/>`;
+    }
+    else {
+        return `<a download=${time}-${index} href=${url}><img src=${url} class="wx_image"/></a>`;
+    }
+}
+</script>
+</body>
+</html>
