@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        // Observer
+        // 定义一个类供传入监听数据
+        class Observer {
+            constructor(data) {
+                let keys = Object.keys(data)
+                for (let i = 0; i < keys.length; i++) {
+                    defineReactive(data, keys[i], data[keys[i]])
+                }
+            }
+        }
+        // 使用Object.defineProperty
+        function defineReactive(data, key, val) {
+            // 每次设置访问器前都先验证值是否为对象，实现递归每个属性
+            observer(val)
+            // 劫持数据属性
+            Object.defineProperty(data, key, {
+                configurable: true,
+                enumerable: true,
+                get() {
+                    return val
+                },
+                set(newVal) {
+                    if (newVal === val) {
+                        return
+                    } else {
+                        data[key] = newVal
+                        // 新值也要劫持
+                        observer(newVal)
+                    }
+                }
+            })
+        }
+
+        // 递归判断
+        function observer(data) {
+            if (Object.prototype.toString.call(data) === '[object, Object]') {
+                new Observer(data)
+            } else {
+                return
+            }
+        }
+
+        // 监听obj
+        observer(data)
+
+
+
+    </script>
+</body>
+
+</html>
