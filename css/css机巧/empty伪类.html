@@ -11,10 +11,38 @@
             padding: 20px;
             border: 10px dashed;
         }
+        .cs-module:empty{
+            display: none;
+        }
+
+        dt{
+            float: left;
+        }
+        dd:empty::before{
+            content: "暂无";
+            color: gray;
+        }
     </style>
 </head>
 <body>
     <div class="cs-empty"></div>
     <div class="cs-empty">a</div>
+
+    <p>隐藏空元素</p>
+    <div class="cs-module"></div>
+
+    <p>字段缺失智能提示</p>
+    <p>动态Ajax加载数据为空的情况。当一个新用户进入一个产品的时候，很多模块内容是没有的。要是在过去，我们需要在Javascript代码中做 if 判断，如果没有值，我们要吐出”没有结果“或者”没有数据“的信息。但是现在，有了:empty伪类，直接把这个工作交给CSS就可以了
+</p>
+    <dl>
+        <dt>姓名:</dt>
+        <dd>张三</dd>
+        <dt>性别：</dt>
+        <dd></dd>
+        <dt>手机：</dt>
+        <dd></dd>
+        <dt>邮箱：</dt>
+        <dd></dd>
+    </dl>
 </body>
 </html>
