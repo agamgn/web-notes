@@ -88,3 +88,16 @@ console.log(strLength);
 console.log(strLength1);
 
 // https://www.tslang.cn/docs/handbook/basic-types.html
+
+
+
+
+// 联合类型
+let myFavor:string|number;
+myFavor="even";
+myFavor=8;
+
+function getLength(something:string|number):string{
+    // return something.length;只能访问此联合类型的所有类型里共有的属性或方法：
+    return something.toString();
+}
