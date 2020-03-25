@@ -101,3 +101,35 @@ function getLength(something:string|number):string{
     // return something.length;只能访问此联合类型的所有类型里共有的属性或方法：
     return something.toString();
 }
+
+
+
+// 数组类型：「类型 + 方括号」
+let fib:number[]=[1,2,3,4,5];
+
+// 数组泛型
+let fibs:Array<number>=[1,1,1,1,1,2];
+
+
+// 用接口表示数组
+interface numberArray{
+    [index:number]:number;
+}
+
+let fib2:numberArray=[1,4,5,7,6,5];
+
+// 类数组（Array-like Object）不是数组类型,不能用普通的数组的方式来描述，而应该用接口
+// function sum() {
+//     let args: number[] = arguments;
+// }
+function sum() {
+    let args: {
+        [index: number]: number;
+        length: number;
+        callee: Function;
+    } = arguments;
+}
+
+// any 在数组中的应用
+
+let list1:any[]=["agamgn",123,{"a":"b"}];

@@ -64,3 +64,25 @@ function reverse(x:number|string):number|string{
     }
 }
 
+
+// 类型别名,使用 type 创建类型别名。
+// 类型别名常用于联合类型
+type Name=string;
+type NameResolve=()=>string;
+type NameOrResolver=Name|NameResolve;
+function getName(n:NameOrResolver):Name{
+    if(typeof n === "string"){
+        return n;
+    }else{
+        return n();
+    }
+}
+
+// 字符串字面量类型用来约束取值只能是某几个字符串中的一个
+// 类型别名与字符串字面量类型都是使用 type 进行定义
+type EventNames="click"|"scroll"|"move";
+function handleEvent(ele:Element,event:EventNames){
+
+}
+handleEvent(document.getElementById('hello'), 'scroll');  // 没问题
+

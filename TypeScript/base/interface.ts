@@ -1,7 +1,9 @@
 interface LabeledValue{
     label:string;
 }
-
+let tom:LabeledValue={
+    label:"tom"
+}
 function printLabel(labelledObj:LabeledValue){
     console.log(labelledObj.label);
 }
@@ -70,16 +72,24 @@ console.log(myArray[0]);
 
 
 // 任意属性[propName:string]:any
-// interface Persion{
-//     name:string,
-//     age?:number,//可选属性
-//     [propName:string]:any
+interface Persion{
+    name:string,
+    age?:number,//可选属性
+    [propName:string]:any
 
-// }
-// let james:Persion{
-//      name:"agamgn";
+}
+let james:Persion={
+     name:"agamgn"
      
+}
+// 一旦定义了任意属性，那么确定属性和可选属性的类型都必须是它的类型的子集
+// demo：number 不是 string 的子属性，所以报错了。
+// interface Persion2{
+//     name:string;
+//     age?:number;
+//     [pro:string]:string;
 // }
+
 
 
 
