@@ -69,3 +69,30 @@ class Animal4{
 
 let a4:Animal4=new Animal4("jack");
 console.log(a4.sayHi());
+
+
+// 类与接口
+interface Alarm{
+    alert():void;
+}
+class Door{}
+class SecurityDoor extends Door implements Alarm{
+    alert(){
+        console.log("SecurityDoor");
+    }
+}
+class Car implements Alarm{
+    alert(){
+        console.log("Car");
+    }
+}
+
+
+// 接口继承接口
+interface Alarm2{
+    alert():void
+}
+interface LightableAlarm extends Alarm2{
+    lingthon():void;
+    lingthoff():void;
+}
