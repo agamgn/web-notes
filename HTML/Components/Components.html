@@ -4,6 +4,32 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width">
   <title>JS Bin</title>
+  <style>
+.u-icon-checkTitle
+{        
+    position: absolute;
+    top: 9px;
+    right: 13px;
+    width: 16px;
+    height: 16px;
+    border-radius: 100%;
+    background: #fff;
+    content: '';
+}
+.u-icon-checkTitle::after
+{
+    position: absolute;
+    top: 2px;
+    right: 5px;
+    width: 4px;
+    height: 8px;
+    border-width: 0 2px 2px 0;
+    border-color: #ffa124;
+    border-style: solid;
+    /* -webkit-transform: rotate(45deg); */
+    content: '';
+}
+  </style>
 </head>
 <body>
 <user-card
@@ -11,7 +37,7 @@
   name="User Name"
   email="yourmail@some-email.com"
 ></user-card>
-  
+<input type="range">
 <template id="userCardTemplate">
   <style>
    :host {
@@ -70,6 +96,7 @@
   </div>
 </template>
 
+<span class="u-icon-checkTitle">搜索</span>
 
 <script>
 class UserCard extends HTMLElement {
