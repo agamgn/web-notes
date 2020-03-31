@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #passbox {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: flex;
+        }
+
+        .passnum {
+            width: 50px;
+            height: 50px;
+            border: 1px solid black;
+            line-height: 50px;
+            text-align: center;
+        }
+
+        .passnum span {
+            position: relative;
+            display: inline-block;
+            height: 10px;
+            width: 10px;
+            background-color: black;
+            border-radius: 50%;
+        }
+
+        .guang::after {
+            content: '';
+            display: inline-block;
+            width: 2px;
+            height: 20px;
+            vertical-align: middle;
+            animation: blink 1s infinite steps(1, start)
+        }
+
+        @keyframes blink {
+            0% {
+                background-color: white;
+            }
+
+            50% {
+                background-color: #6666;
+            }
+
+            100% {
+                background-color: white;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <label>
+        <input class="hide_input" id="inputbox" type="tel" maxlength="6" style="opacity: 0;">
+        <div id="passbox">
+            <div class="passnum"></div>
+            <div class="passnum"></div>
+            <div class="passnum"></div>
+            <div class="passnum"></div>
+            <div class="passnum"></div>
+            <div class="passnum"></div>
+        </div>
+    </label>
+    <script>
+        function passCode() {
+            var passinput = document.getElementById("inputbox")
+            var passnum = document.getElementsByClassName("passnum")
+            var inputVal;
+            passinput.addEventListener("input", function () {
+                inputVal = passinput.value;
+                for (let i = 0; i < passnum.length; i++) {
+                    passnum[i].innerHTML = ""
+                    passnum[i].classList.remove("guang");
+                }
+                for (var i = 0; i < inputVal.length; i++) {
+                    passnum[i].innerHTML = "<span/>"
+                }
+                passnum[inputVal.length].classList.add("guang")
+            })
+            passinput.addEventListener('focus', function () {
+                var vals = passinput.value
+                if (!vals.length) {
+                    passnum[0].classList.add("guang")
+                } else {
+                    passnum[vals.length].classList.add("guang")
+                }
+            })
+            passinput.addEventListener("blur", function () {
+                var reg = new RegExp('(\\s|^)' + "guang" + '(\\s|$)');
+                passnum.className = passnum.className.replace(reg, ' ');
+            })
+        }
+
+        passCode()
+    </script>
+</body>
+
+</html>
