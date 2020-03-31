@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <style>
+    #left,
+    #center,
+    #right {
+        height: 300px;
+    }
+
+    #left,
+    #right {
+        width: 300px;
+    }
+
+    #left {
+        background-color: #c9394a;
+        float: left;
+    }
+    #center {
+        background-color: green;
+        margin-left: 300px;
+        margin-right: 300px;
+    }
+    #right {
+        background-color:#cccccc;
+        float: right;
+    }
+    .test,
+    .aftertest{
+        height: 300px;
+    }
+    .test {
+        background-color: red;
+        margin-right: 300px;
+    }
+    .aftertest {
+        background-color: blue;
+        width: 300px;
+        float: right;
+    }
+
+
+    #parent {
+        height: 300px;
+        margin-left: 300px;
+        margin-right: 300px;    
+    }
+    #left1,
+    #center1,
+    #right1 {
+        height: 300px;
+        float: left;
+    }
+
+    #left1,
+    #right1 {
+        width: 300px;
+    }
+
+    #left1 {
+        background-color: #cccccc;
+        margin-left: -100%;
+        position: relative;
+        left:-300px;
+    }
+    #center1 {
+        background-color: blue;
+        /* 为父级元素的100% */
+       width: 100%;
+    }
+    #right1 {
+        background-color:#c9394a;
+        margin-left: -300px;
+        position: relative;
+        right:-300px;
+    }
+    </style>
+</head>
+<body>
+
+    <div id="left"></div>
+    <div id="right"></div>
+    <div id="center"></div>
+    <!-- 兄弟元素前面没有浮动，那么浮动的元素不能超过前面的元素，解决方案，换位置或者加父级div -->
+    <!-- <div class="test"></div>
+    <div class="aftertest"></div> -->
+    <div id="parent">
+        <div id="center1"></div>
+        <div id="left1"></div>
+        <div id="right1"></div>
+    </div>
+   
+
+</body>
+</html>
