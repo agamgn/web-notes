@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>battery</title>
+</head>
+
+<body>
+
+
+    <script>
+        navigator.getBattery().then(function (battery) {
+
+
+            console.log("是否在充电? " + (battery.charging ? "是" : "否"));
+            console.log("电量等级: " + battery.level * 100 + "%");
+            console.log("充电时间: " + battery.chargingTime + " s");
+            console.log("放电时间: " + battery.dischargingTime + "s");
+
+
+
+            battery.addEventListener('chargingchange', function () {
+                console.log("是否在充电? " + (battery.charging ? "Yes" : "No"));
+            });
+
+            battery.addEventListener('levelchange', function () {
+                console.log("电量等级: " + battery.level * 100 + "%");
+            });
+
+            battery.addEventListener('chargingtimechange', function () {
+                console.log("充电时间: " + battery.chargingTime + " seconds");
+            });
+
+            battery.addEventListener('dischargingtimechange', function () {
+                console.log("放电时间: " + battery.dischargingTime + " seconds");
+            });
+
+        });
+    </script>
+</body>
+
+</html>
