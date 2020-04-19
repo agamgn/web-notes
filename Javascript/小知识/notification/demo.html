@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <script>
+        Notification.requestPermission(function (status) {
+            console.log(status); // 仅当值为 "granted" 时显示通知
+            var n = new Notification("demo", { body: "demo" }); // 显示通知
+            n.onshow = function () {
+                // 消息显示时执行的逻辑
+                console.log('show')
+            }
+            n.onclick = function () {
+                // 消息被点击时执行的逻辑
+                history.push('/detail/1232432')
+            }
+            n.onclose = function () {
+                // 消息关闭时执行的逻辑
+                console.log('close')
+            }
+        });
+
+    </script>
+</body>
+
+</html>
