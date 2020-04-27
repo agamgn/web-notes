@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .trash {
+            color: #000;
+            position: absolute;
+            margin-left: 5px;
+            margin-top: 7px;
+            width: 9px;
+            height: 10px;
+            border-left: solid 1px currentColor;
+            border-right: solid 1px currentColor;
+            border-bottom: solid 1px currentColor;
+            border-radius: 0 0 2px 2px;
+        }
+
+        .trash:before {
+            content: '';
+            position: absolute;
+            left: -4px;
+            top: -2px;
+            width: 17px;
+            height: 1px;
+            background-color: currentColor;
+        }
+
+        .trash:after {
+            content: '';
+            position: absolute;
+            left: 0px;
+            top: -5px;
+            width: 7px;
+            height: 2px;
+            border-left: solid 1px currentColor;
+            border-right: solid 1px currentColor;
+            border-top: solid 1px currentColor;
+            border-radius: 4px 4px 0 0;
+        }
+    </style>
+</head>
+
+<body>
+<div class="trash"></div>
+</body>
+
+</html>
