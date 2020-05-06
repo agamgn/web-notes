@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .print {
+            color: #000;
+            position: absolute;
+            margin-left: 2px;
+            margin-top: 5px;
+            width: 15px;
+            height: 6px;
+            border: solid 1px currentColor;
+            border-radius: 1px 1px 0 0;
+        }
+
+        .print:before {
+            content: '';
+            position: absolute;
+            left: 2px;
+            top: -3px;
+            height: 13px;
+            width: 9px;
+            border: solid 1px currentColor;
+            background-color: white;
+        }
+
+        .print:after {
+            content: '';
+            position: absolute;
+            left: 1px;
+            top: -1px;
+            width: 13px;
+            height: 3px;
+            border-top: solid 1px currentColor;
+            border-bottom: solid 1px currentColor;
+            background-color: white;
+        }
+    </style>
+</head>
+
+<body>
+<div class="print"></div>
+</body>
+
+</html>
