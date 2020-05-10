@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .camera {
+            color: #000;
+            position: absolute;
+            margin-left: 2px;
+            margin-top: 5px;
+            width: 16px;
+            height: 10px;
+            border-radius: 1px;
+            border: solid 1px currentColor;
+        }
+
+        .camera:before {
+            content: '';
+            position: absolute;
+            left: 5px;
+            top: 2px;
+            width: 4px;
+            height: 4px;
+            border-radius: 3px;
+            border: solid 1px currentColor;
+        }
+
+        .camera:after {
+            content: '';
+            position: absolute;
+            right: 2px;
+            top: -2px;
+            width: 4px;
+            height: 1px;
+            border-radius: 1px 1px 0 0;
+            background-color: currentColor;
+        }
+    </style>
+</head>
+
+<body>
+<div class="camera"></div>
+</body>
+
+</html>
