@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .unlock {
+            color: #000;
+            position: absolute;
+            margin-left: 3px;
+            margin-top: 10px;
+            width: 13px;
+            height: 6px;
+            border: solid 1px currentColor;
+            border-radius: 1px;
+        }
+
+        .unlock:before {
+            content: '';
+            position: absolute;
+            left: 3px;
+            top: -8px;
+            width: 5px;
+            height: 3px;
+            border-radius: 4px 4px 0 0;
+            border-top: solid 1px currentColor;
+            border-left: solid 1px currentColor;
+            border-right: solid 1px currentColor;
+        }
+
+        .unlock:after {
+            content: '';
+            position: absolute;
+            left: 3px;
+            top: -4px;
+            width: 1px;
+            height: 3px;
+            background-color: currentColor;
+        }
+    </style>
+</head>
+
+<body>
+<div class="unlock"></div>
+</body>
+
+</html>
