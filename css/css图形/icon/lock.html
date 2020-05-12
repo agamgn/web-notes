@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .lock {
+            color: #000;
+            position: absolute;
+            margin-left: 3px;
+            margin-top: 10px;
+            width: 13px;
+            height: 6px;
+            border-radius: 1px;
+            border: solid 1px currentColor;
+        }
+
+        .lock:before {
+            content: '';
+            position: absolute;
+            left: 3px;
+            top: -8px;
+            width: 5px;
+            height: 6px;
+            border-radius: 4px 4px 0 0;
+            border-top: solid 1px currentColor;
+            border-left: solid 1px currentColor;
+            border-right: solid 1px currentColor;
+        }
+    </style>
+</head>
+
+<body>
+<div class="lock"></div>
+</body>
+
+</html>
