@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .code. {
+            color: #000;
+            position: absolute;
+            margin-left: 3px;
+            margin-top: 6px;
+        }
+
+        .code:before {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-left: solid 1px currentColor;
+            border-top: solid 1px currentColor;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+
+        .code:after {
+            content: '';
+            position: absolute;
+            left: 6px;
+            width: 8px;
+            height: 8px;
+            border-bottom: solid 1px currentColor;
+            border-right: solid 1px currentColor;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+    </style>
+</head>
+
+<body>
+<div class="code"></div>
+</body>
+
+</html>
