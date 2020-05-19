@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .flag {
+            color: #000;
+            position: absolute;
+            margin-left: 6px;
+            margin-top: 4px;
+            width: 9px;
+            height: 6px;
+            border-radius: 1px;
+            border: solid 1px currentColor;
+        }
+
+        .flag:before {
+            content: '';
+            position: absolute;
+            left: -3px;
+            top: -2px;
+            width: 1px;
+            height: 15px;
+            background-color: currentColor;
+        }
+    </style>
+</head>
+
+<body>
+<div class="flag"></div>
+</body>
+
+</html>
