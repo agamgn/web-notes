@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .export {
+            color: #000;
+            position: absolute;
+            margin-left: 4px;
+            margin-top: 7px;
+            width: 11px;
+            height: 9px;
+            border-radius: 1px;
+            border: solid 1px currentColor;
+        }
+
+        .export:before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            left: 2px;
+            width: 1px;
+            height: 8px;
+            border-left: solid 3px white;
+            border-right: solid 3px white;
+            background-color: currentColor;
+        }
+
+        .export:after {
+            content: '';
+            position: absolute;
+            left: 3px;
+            top: -5px;
+            width: 4px;
+            height: 4px;
+            border-top: solid 1px currentColor;
+            border-right: solid 1px currentColor;
+            -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+        }
+    </style>
+</head>
+
+<body>
+<div class="export"></div>
+</body>
+
+</html>
