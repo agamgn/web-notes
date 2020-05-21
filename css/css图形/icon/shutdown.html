@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .shutdown {
+            color: #000;
+            position: absolute;
+            margin-top: 3px;
+            margin-left: 3px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            border: solid 1px currentColor;
+        }
+
+        .shutdown:before {
+            content: '';
+            position: absolute;
+            left: 3px;
+            top: -2px;
+            width: 1px;
+            height: 8px;
+            border-left: solid 3px white;
+            border-right: solid 3px white;
+            background-color: currentColor;
+        }
+    </style>
+</head>
+
+<body>
+<div class="shutdown"></div>
+</body>
+
+</html>
