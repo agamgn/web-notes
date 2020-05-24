@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .center-align {
+            color: #000;
+            position: absolute;
+            margin-left: 2px;
+            margin-top: 6px;
+            width: 17px;
+            height: 5px;
+            border-top: solid 1px currentColor;
+            border-bottom: solid 1px currentColor;
+        }
+
+        .center-align:before {
+            content: '';
+            position: absolute;
+            top: 2px;
+            left: 3px;
+            width: 11px;
+            height: 5px;
+            border-top: solid 1px currentColor;
+            border-bottom: solid 1px currentColor;
+        }
+    </style>
+</head>
+
+<body>
+<div class="center-align"></div>
+</body>
+
+</html>
