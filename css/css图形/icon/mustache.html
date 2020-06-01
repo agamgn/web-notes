@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .mustache {
+            color: #000;
+            position: absolute;
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            box-shadow: 5px 8px 0 0 currentColor, 10px 8px 0 0 currentColor;
+        }
+
+        .mustache:before {
+            content: '';
+            position: absolute;
+            left: 1px;
+            top: 4px;
+            width: 7px;
+            height: 4px;
+            border-radius: 0 0 0 100%;
+            border: 0 solid transparent;
+            border-bottom: 6px solid currentColor;
+            -webkit-transform-origin: right 7px;
+            transform-origin: right 7px;
+            -webkit-transform: rotate(-40deg);
+            transform: rotate(-40deg);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="mustache"><i></i></div>
+
+</body>
+
+</html>
