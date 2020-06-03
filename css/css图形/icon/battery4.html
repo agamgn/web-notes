@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .battery-3.icon {
+            color: #000;
+            position: absolute;
+            margin-left: 2px;
+            margin-top: 6px;
+            width: 13px;
+            height: 7px;
+            border-radius: 2px;
+            border: solid 1px currentColor;
+        }
+
+        .battery-3.icon:before {
+            content: '';
+            position: absolute;
+            right: -3px;
+            top: 1px;
+            width: 2px;
+            height: 3px;
+            border-radius: 0 2px 2px 0;
+            border-top: solid 1px currentColor;
+            border-right: solid 1px currentColor;
+            border-bottom: solid 1px currentColor;
+        }
+
+        .battery-3.icon:after {
+            content: '';
+            position: absolute;
+            left: 1px;
+            top: 1px;
+            width: 11px;
+            height: 5px;
+            background-color: currentColor;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="battery-3 icon"></div>
+</body>
+
+</html>
