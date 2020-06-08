@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .laugh.icon {
+            color: #000;
+            position: absolute;
+            margin-left: 2px;
+            margin-top: 2px;
+            width: 16px;
+            height: 16px;
+            border-radius: 50%;
+            border: solid 1px currentColor;
+        }
+
+        .laugh.icon:before {
+            content: '';
+            position: absolute;
+            left: 3px;
+            top: 3px;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            border: solid 1px currentColor;
+        }
+
+        .laugh.icon:after {
+            content: '';
+            position: absolute;
+            right: 3px;
+            top: 3px;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            border: solid 1px currentColor;
+        }
+
+        .laugh.icon i {
+            position: absolute;
+            left: 2px;
+            top: 9px;
+            width: 10px;
+            height: 4px;
+            border-radius: 0 0 6px 6px;
+            border: solid 1px currentColor;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="laugh icon"><i></i></div>
+</body>
+
+</html>
