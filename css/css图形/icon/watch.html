@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .watch-solid.icon {
+            color: #000;
+            position: absolute;
+            margin-left: 7px;
+            margin-top: 0px;
+            width: 5px;
+            height: 19px;
+            border-radius: 1px;
+            border: solid 1px currentColor;
+            background-color: currentColor;
+        }
+
+        .watch-solid.icon:before {
+            content: '';
+            position: absolute;
+            left: -5px;
+            top: 2px;
+            width: 13px;
+            height: 13px;
+            border-radius: 50%;
+            border: solid 1px white;
+            background-color: currentColor;
+        }
+
+        .watch-solid.icon:after {
+            content: '';
+            position: absolute;
+            left: 2px;
+            top: 5px;
+            width: 3px;
+            height: 4px;
+            color: white;
+            border-left: solid 1px currentColor;
+            border-bottom: solid 1px currentColor;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="watch-solid icon"></div>
+</body>
+
+</html>
