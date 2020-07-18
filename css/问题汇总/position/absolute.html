@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>absolute</title>
+
+</head>
+<style>
+    .absolute {
+        border: 1px solid red;
+        position: absolute;
+    }
+
+    .absolute2{
+        border: 1px solid red;
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: auto;
+        top: 50px;
+    }
+    .relative {
+        border: 1px solid red;
+        position: relative;
+        top: 100px;
+
+    }
+</style>
+
+<body>
+
+    <div class="absolute">使用position：absolute之后 </div>
+    <div class="absolute2">使用position：absolute之后，相对于body设置宽度width: 100%</div>
+
+    
+    <div class="relative">我们来学习一下这种方法。</div>
+</body>
+
+</html>
