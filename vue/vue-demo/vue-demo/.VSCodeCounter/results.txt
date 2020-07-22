@@ -1,0 +1,66 @@
+Date : 2020-07-21 16:24:08
+Directory : c:\Users\ltt\Desktop\demo\vue\hover-vue-demo
+Total : 29 files,  12656 codes, 72 comments, 138 blanks, all 12866 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JSON       |          2 |     11,822 |          0 |          2 |     11,824 |
+| JavaScript |         14 |        580 |         70 |         83 |        733 |
+| Vue        |         10 |        220 |          1 |         41 |        262 |
+| Markdown   |          1 |         14 |          0 |          8 |         22 |
+| HTML       |          1 |         12 |          1 |          2 |         15 |
+| Properties |          1 |          8 |          0 |          2 |         10 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                               | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                  |         29 |     12,656 |         72 |        138 |     12,866 |
+| build                                                                              |          7 |        451 |         40 |         56 |        547 |
+| config                                                                             |          3 |         39 |         25 |         19 |         83 |
+| src                                                                                |         13 |        303 |          4 |         47 |        354 |
+| src\components                                                                     |          9 |        185 |          1 |         35 |        221 |
+| src\components\namerouter                                                          |          2 |         23 |          0 |          9 |         32 |
+| src\components\tabs                                                                |          3 |         33 |          0 |         12 |         45 |
+| src\mixin                                                                          |          1 |          7 |          0 |          0 |          7 |
+| src\router                                                                         |          1 |         66 |          0 |          3 |         69 |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                           | language   | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\.editorconfig                         | Properties |          8 |          0 |          2 |         10 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\.postcssrc.js                         | JavaScript |          7 |          2 |          2 |         11 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\README.md                             | Markdown   |         14 |          0 |          8 |         22 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\build\build.js                        | JavaScript |         35 |          0 |          7 |         42 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\build\check-versions.js               | JavaScript |         45 |          0 |         10 |         55 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\build\utils.js                        | JavaScript |         80 |          5 |         17 |        102 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\build\vue-loader.conf.js              | JavaScript |         21 |          0 |          2 |         23 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\build\webpack.base.conf.js            | JavaScript |         74 |          4 |          5 |         83 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\build\webpack.dev.conf.js             | JavaScript |         82 |          7 |          7 |         96 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\build\webpack.prod.conf.js            | JavaScript |        114 |         24 |          8 |        146 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\config\dev.env.js                     | JavaScript |          6 |          0 |          2 |          8 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\config\index.js                       | JavaScript |         29 |         25 |         16 |         70 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\config\prod.env.js                    | JavaScript |          4 |          0 |          1 |          5 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\index.html                            | HTML       |         12 |          1 |          2 |         15 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\package-lock.json                     | JSON       |     11,759 |          0 |          1 |     11,760 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\package.json                          | JSON       |         63 |          0 |          1 |         64 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\src\App.vue                           | Vue        |         35 |          0 |          6 |         41 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\src\components\animal.vue             | Vue        |         50 |          0 |          3 |         53 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\src\components\mixins.vue             | Vue        |         45 |          0 |          3 |         48 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\src\components\mixins2.vue            | Vue        |         11 |          0 |          3 |         14 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\src\components\namerouter\routera.vue | Vue        |         13 |          0 |          4 |         17 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\src\components\namerouter\routerb.vue | Vue        |         10 |          0 |          5 |         15 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\src\components\tab.vue                | Vue        |         23 |          1 |          5 |         29 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\src\components\tabs\a.vue             | Vue        |         11 |          0 |          4 |         15 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\src\components\tabs\b.vue             | Vue        |         11 |          0 |          4 |         15 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\src\components\tabs\c.vue             | Vue        |         11 |          0 |          4 |         15 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\src\main.js                           | JavaScript |         10 |          3 |          3 |         16 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\src\mixin\mixin.js                    | JavaScript |          7 |          0 |          0 |          7 |
+| c:\Users\ltt\Desktop\demo\vue\hover-vue-demo\src\router\index.js                   | JavaScript |         66 |          0 |          3 |         69 |
+| Total                                                                              |            |     12,656 |         72 |        138 |     12,866 |
++------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
