@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span {
+            cursor: pointer;
+            height: 40px;
+            line-height: 40px;
+            text-align: center;
+            display: inline-block;
+            color: #333;
+            background: #ccc;
+            min-width: 80px;
+            padding: 0 10px;
+            margin: 10px;
+        }
+
+        /* 大小 */
+        .scale-big,
+        .scale-small {
+            transition: all .4s;
+        }
+
+        .scale-big:hover {
+            /* scale缩放 */
+            transform: scale(1.2);
+        }
+
+        .scale-small:hover {
+            transform: scale(.8);
+        }
+
+        /* 形状 */
+        .skew-l,
+        .skew-t,
+        .skew-b {
+            transition: all .4s;
+        }
+
+        .skew-l:hover {
+            /* skew扭曲 */
+            transform: skew(-15deg);
+        }
+
+        .skew-t {
+            transform-origin: 0 100%;
+        }
+
+        .skew-b {
+            transform-origin: 100% 0;
+        }
+
+        .skew-t:hover {
+            transform: skewY(15deg);
+        }
+
+        .skew-b:hover {
+            transform: skewY(-15deg);
+        }
+
+        /* 旋转角度 */
+        .grow-rotate-l,
+        .rotate360,
+        .rotate-90 {
+            transition: all .4s;
+        }
+
+        .grow-rotate-l:hover {
+            transform: scale(1.1);
+            rotate: (5deg);
+        }
+
+        .rotate360:hover {
+            /* rotate旋转 */
+            transform: rotate(360deg);
+        }
+
+        .rotate-90:hover {
+            transform: rotate(-90deg);
+        }
+
+        /* 位移 */
+        .tr-u,
+        .tr-l {
+            transition: all .4s;
+        }
+
+        .tr-u:hover {
+            /* translate移动 */
+            transform: translate(0, -10px);
+        }
+
+        .tr-l:hover {
+            transform: translate3d(-10px, 0, 0);
+        }
+
+        /* 边框变化 */
+        .border,
+        .border-in {
+            transition: all .4s;
+        }
+
+        .border:hover {
+            box-shadow: 0 0 0 4px #09f,
+                0 0 1px transparent;
+        }
+
+        .border-in:hover {
+            box-shadow: inset 0 0 4px #09f,
+                0 0 1px transparent;
+        }
+
+        /* 阴影变化 */
+        .shadow,
+        .shadow-in {
+            transition: all .4s;
+        }
+
+        .shadow:hover {
+            box-shadow: 0 0 10px #333;
+        }
+
+        .shadow-in:hover {
+            box-shadow: inset 0 0 10px #333;
+        }
+
+        /* 透明度 */
+        .fade-out,
+        .fade-in {
+            transition: all .4s;
+        }
+
+        .fade-out:hover {
+            opacity: .6;
+        }
+
+        .fade-in {
+            opacity: .5;
+        }
+
+        .fade-in:hover {
+            opacity: 1;
+        }
+
+        /* 圆角 */
+        .radius {
+            transition: all .4s
+        }
+
+        .radius:hover {
+            border-radius: 50%;
+        }
+
+
+
+
+
+
+
+
+
+        /* 颜色动画效果 */
+        .fate,
+        .fate-t {
+            position: relative;
+            z-index: 1;
+            transition: all .4s;
+        }
+
+        .fate:before,
+        .fate-t:before {
+            position: absolute;
+            transition: all .4s;
+            content: " ";
+            display: block;
+            background: #09f;
+            z-index: -1;
+        }
+
+        .fate::before {
+            top: 0;
+            left: 0;
+            transform: scaleX(1);
+            opacity: 0;
+        }
+
+        .fate:hover::before {
+            opacity: 1;
+        }
+
+
+        /* 较复杂动画    难度就在于创意 */
+        /* 闪烁 */
+        .flash:hover {
+            animation: flash .5s ease;
+        }
+
+        @keyframes flash {
+            0%,
+            50%,
+            100% {
+                opacity: 1;
+            }
+            25%,
+            75% {
+                opacity: 0;
+            }
+        }
+
+        /* 震动 */
+        .shake-time:hover {
+            animation: shake-time 1s ease;
+        }
+
+        @keyframes shake-time {
+            0% {
+                transform: scale(1);
+            }
+
+            10%,
+            20% {
+                transform: scale(0.9) rotate(-3deg);
+            }
+
+            30%,
+            50%,
+            70%,
+            90% {
+                transform: scale(1.1) rotate(3deg);
+            }
+
+            40%,
+            60%,
+            80% {
+                transform: scale(1.1) rotate(-3deg);
+            }
+
+            100% {
+                transform: scale(1) rotate(0);
+            }
+        }
+
+        /* 跳跃 */
+        .bounce:hover{
+            animation: bounce 1s ease;
+        }
+        @keyframes bounce{
+            0%,20%,50%,80%,100%{
+                transform: translateY(0);
+            }
+            40%{
+                transform: translateY(-50px);
+            }
+            60%{
+                transform: translateY(-15px);
+            }
+        }
+        /* 摇晃 */
+        .ech-wobble-t, .ech-skew-r-t {
+    transform-origin: 0 100%;
+}
+
+
+.ech-wobble-c:hover, .ech-wobble-t:hover {
+    animation: wobble-x 1s ease-in-out;
+}
+@keyframes wobble-x {
+    16.65% {
+        -webkit-transform: skew(-12deg);
+        transform: skew(-12deg);
+    }
+    33.3% {
+        -webkit-transform: skew(10deg);
+        transform: skew(10deg);
+    }
+    49.95% {
+        -webkit-transform: skew(-6deg);
+        transform: skew(-6deg);
+    }
+    66.6% {
+        -webkit-transform: skew(4deg);
+        transform: skew(4deg);
+    }
+    83.25% {
+        -webkit-transform: skew(-2deg);
+        transform: skew(-2deg);
+    }
+    100% {
+        -webkit-transform: skew(0);
+        transform: skew(0);
+    }
+}
+
+    </style>
+</head>
+
+<body>
+    <!-- 较复杂动画 -->
+    <!-- 闪烁 -->
+    <span class="flash">flash</span>
+    <!-- 震动 -->
+    <span class="shake-time">shake-time</span>
+    <!-- 跳跃 -->
+    <span class="bounce">bounce</span>
+    <br>
+    <!-- 摇晃 -->
+    <span class="wpbble-c">wobble-c</span>
+    <span class="wpbble-t">wobble-t</span>
+    <br>
+
+
+
+
+
+    <!-- 颜色块变化 -->
+    <span class="fate">fade</span>
+    <span class="fate-t">fade-t</span>
+    <br>
+    <!-- hover -->
+    <!-- 大小变化 -->
+    <span class="scale-big">big</span>
+    <span class="scale-small">small</span>
+    <br>
+    <!-- 形状变化 -->
+    <span class="skew-l">skew-l</span>
+    <span class="skew-t">skew-t</span>
+    <span class="skew-b">skew-b</span>
+    <br>
+    <!-- 旋转角度 -->
+    <span class="grow-rotate-l">grow-rotate-l</span>
+    <span class="rotate360">rotate360</span>
+    <span class="rotate-90">rotate-90</span>
+    <br>
+    <!-- 位移 -->
+    <span class="tr-u">up</span>
+    <span class="tr-l">left</span>
+    <br>
+    <!-- 边框变化 -->
+    <span class="border">border</span>
+    <span class="border-in">border-in</span>
+    <br>
+    <!-- 阴影变化 -->
+    <span class="shadow">shadow</span>
+    <span class="shadow-in">shadow-in</span>
+    <br>
+    <!-- 透明度 -->
+    <span class="fade-out">fade-out</span>
+    <span class="fade-in">fade-in</span>
+    <br>
+    <!-- 圆角 -->
+    <span class="radius">rectangle</span>
+</body>
+
+</html>
