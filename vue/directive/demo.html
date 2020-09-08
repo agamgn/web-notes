@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ref</title>
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="demo"></div>
+        <input />
+        <!-- https://segmentfault.com/a/1190000012827871 -->
+        <input v-focus />
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                datas: ["one","two","three","fore"]
+                
+            },
+            directives:{
+                focus:{
+                    inserted(el){
+                        el.focus()
+                    }
+                }
+            },
+            created(){ 
+                // console.log(this.$refs.refconent)
+                this.$nextTick(()=>{
+                    console.log(this.$refs.refconent)
+                })
+            },
+            methods: {
+              
+            }
+        })
+    </script>
+</body>
+
+</html>
